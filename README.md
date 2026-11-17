@@ -24,12 +24,12 @@ ai-skills/
 /plugin marketplace add yaronr/ai-skills
 ```
 ```bash
-/plugin install product-management@ai-skills
+/plugin install product-management@ai-skills   # installs product-management + product-ops
 ```
 
 **Manual install (any Claude Code setup):** copy a skill folder into your skills directory.
 ```bash
-cp -r skills/product-management ~/.claude/skills/
+cp -r skills/product-management skills/product-ops ~/.claude/skills/
 ```
 
 **Claude.ai:** zip the skill folder. Then upload it under Settings → Capabilities → Skills.

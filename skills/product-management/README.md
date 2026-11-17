@@ -12,7 +12,7 @@ Ask any product question. You don't need to name the skill. Examples:
 - "Should we add a free tier to our API product?"
 - "Write a PRD and user stories for offline mode in our field-service app"
 - "DAU dropped 8% week over week. Why?"
-- "What should Spotify build in the next 5 years?"
+- "What should our music-streaming app build in the next 5 years?"
 - "Mock interview: design an alarm clock for people with low vision"
 
 ## How it works
@@ -25,7 +25,7 @@ Ask any product question. You don't need to name the skill. Examples:
 | 3 Decide | GPM | Lays out 3 options → 1 pick, with the trade-off and a reverse trigger |
 | 4 Define | pm-writer · eng-lead · designer · gtm-lead · data-analyst | PRD, user stories, feasibility and risks, flows and the visual artifact, GTM, metrics spec |
 | 5 Review | red-team (Opus) · editor (Haiku) | A fresh-eyes critique, then a style and consistency pass |
-| 6 Package | GPM | Writes `product-work/<date>-<slug>/` (00-brief.md first) and an HTML artifact |
+| 6 Package | GPM → product-ops | Files the work into the knowledge base (or into `product-work/`) and builds an HTML artifact |
 
 **Model tiering.** Opus handles the judgment-heavy roles: strategy, numbers and red-team
 review. Sonnet handles the research and writing roles. Haiku handles the mechanical
@@ -44,6 +44,12 @@ agents/               subagent role briefs (+ _common.md)
 evals/                test cases (claude plugin eval layout)
 ```
 
+## Companion skill
+
+**[product-ops](../product-ops)** is the team's memory. Before a run it briefs the team
+from the product knowledge base. After the run it files the deliverables, insights and
+decisions. Install both.
+
 ## Optional dependency
 
 **[ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)** is used to
@@ -53,5 +59,5 @@ style the visual artifacts. If it is not installed, the skill falls back to the
 ## Sources
 
 The frameworks are adapted from GPM interview-prep cards and a GPM metrics cheat sheet.
-They are extended with established practice: Google HEART/GSM, Cagan, Torres, Lafley &
-Martin, Rumelt, Helmer, Amazon Working Backwards, INVEST and Gherkin.
+They are extended with established practice: HEART/GSM, Cagan, Torres, Lafley &
+Martin, Rumelt, Helmer, Working Backwards (PR/FAQ), INVEST and Gherkin.

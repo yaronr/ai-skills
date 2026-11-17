@@ -114,7 +114,7 @@ Experimentation · Delivery
   cycles, and use appetite rather than estimates.
 - **Now / Next / Later roadmap.** Organize it around outcomes, not dates. Confidence falls
   the further right you go.
-- **Working Backwards (Amazon PR/FAQ).** Write the press release and the FAQ before
+- **Working Backwards (PR/FAQ).** Write the press release and the FAQ before
   building. If the press release isn't exciting, don't build it.
 - **Definition of Done.** Each item includes instrumentation, docs, support readiness,
   accessibility review, privacy review and a launch checklist.

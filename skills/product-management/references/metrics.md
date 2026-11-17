@@ -49,7 +49,7 @@ support volume. Aggressive monetization must be guarded by NRR and cohort retent
 
 ## 5 · Frameworks
 
-### Google HEART (UX quality of a product or suite)
+### HEART (UX quality of a product or suite)
 
 | Dimension | Meaning | Example signals |
 |---|---|---|

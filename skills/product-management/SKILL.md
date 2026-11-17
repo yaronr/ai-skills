@@ -1,12 +1,12 @@
 ---
 name: product-management
-description: Acts as a full Google-calibre product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Also use it for PM interview practice. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework".
+description: Acts as a full, top-tier product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Also use it for PM interview practice. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework".
 ---
 
 # Product Management: a GPM-led product team
 
 You are the **GPM orchestrator**. Your job is to turn a product question into
-decision-ready artifacts of the kind a strong Google product team would ship: user insight,
+decision-ready artifacts of the kind a top-tier product team would ship: user insight,
 analysis, a recommendation, a PRD, user stories, metrics and a launch plan. Subagents play
 the specialist roles. You frame the question, make the call, keep the documents consistent
 and own the final quality.
@@ -85,6 +85,20 @@ explicitly for a workflow or multi-agent orchestration.
 
 ## Phase 1: Frame (you, 1–3 minutes)
 
+**Load memory first.** Invoke the **`product-ops`** skill with the job "Brief".
+- It finds the product knowledge base and returns:
+  - the NSM;
+  - the glossary;
+  - the relevant insights;
+  - the approved decisions;
+  - the gaps.
+- Use those names and numbers exactly.
+- Don't contradict an approved decision silently. Either follow it, or propose a
+  superseding decision backed by new evidence.
+
+If there is no knowledge base, or `product-ops` isn't installed, carry on. In Phase 6,
+offer to set one up.
+
 Follow the GPM habits: start from the user, then business, then tech.
 
 1. **Restate** the question in one line. Name the **goal** you are optimizing for:
@@ -118,7 +132,15 @@ Load **only** the reference sections you need. They are written to be skimmed.
 
 ## Phase 2: Discover (parallel subagents)
 
-Spawn the research roles **in one message** so they run concurrently. Use the
+Spawn the research roles **in one message** so they run concurrently. Give each one the
+knowledge-base paths from the Brief. Internal evidence beats web evidence.
+
+**No Agent tool?** That happens, for example, when this skill runs inside a subagent.
+Play the roles yourself, one after another, using the same role files. Then do the
+Phase 5 review as a separate, deliberate pass. Note in the setup card that you are
+running solo.
+
+ Use the
 `general-purpose` agent type. Each role brief is in `agents/`.
 
 Build each prompt from these parts, in order:
@@ -191,8 +213,15 @@ On Quick runs, skip the agents. Self-check against the quality bar instead.
 
 ## Phase 6: Package
 
-Write to `product-work/<yyyy-mm-dd>-<slug>/` in the working directory, unless the user
-named another place:
+**If a knowledge base exists,** invoke `product-ops` with the job "File deliverables". It
+files the work into `initiatives/<slug>/` and extracts insights and decisions into the
+right folders.
+
+**If none exists,** write to `product-work/<yyyy-mm-dd>-<slug>/` in the working directory. In
+the final reply, offer one line: "Want a product knowledge base for this project?
+(`product-ops`)".
+
+The file set is the same in both locations, unless the user named another place:
 
 ```
 00-brief.md          ← the only file most people read (≤250 words)
@@ -237,7 +266,7 @@ each subagent prompt.
 
 ## Quality bar
 
-The red team and you both check against this. A Google GPM would reject the work if any
+The red team and you both check against this. A seasoned GPM would reject the work if any
 item fails.
 
 1. **Starts from the user.** Segments are named and one is chosen with a reason. Pains
@@ -260,6 +289,9 @@ item fails.
 9. **Concise.** The writing rules are met. The brief fits on one screen.
 
 ## Reference map
+
+- The **`product-ops`** skill (a separate skill in this repo): the product knowledge base,
+  covering its home, layout, ingestion, filing and hygiene.
 
 - [references/frameworks.md](references/frameworks.md): the step-by-step GPM frameworks
   (§1–§11) and lines to say aloud.

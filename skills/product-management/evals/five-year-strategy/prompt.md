@@ -5,4 +5,4 @@ timeout_seconds: 1800
 allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash, Agent, WebSearch, WebFetch]
 ---
 
-You're the new GPM for Google Keep. What should Keep build over the next 5 years? I want something I could present to leadership.
+You're the new GPM for a mature note-taking app with 50M monthly users. What should it build over the next 5 years? I want something I could present to leadership.
