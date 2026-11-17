@@ -15,8 +15,6 @@ Do a mechanical pass over all the files in the work directory. Edit them in plac
 7. **Brief length.** Run `wc -w 00-brief.md` (or count). If it is over 250 words, cut
    until it fits: move detail into the numbered files and leave a pointer. Keep the
    decision, TL;DR, "Decision needed" line and reverse trigger. Report the final count.
-8. **Company names.** Real companies may appear only as sourced market evidence (with
-   a link in `sources.md`). Replace any other mention with a neutral description.
 
 **Return:** a list of the changes you made, 10 lines or fewer. Do not change any
 decisions or numbers beyond what consistency requires.

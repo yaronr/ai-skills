@@ -41,6 +41,7 @@ cp -r skills/product-management skills/product-ops ~/.claude/skills/
 - **Tests:** add them under `evals/<case>/`, in the `claude plugin eval` layout.
 - **New items:** add a row to [INDEX.md](INDEX.md), and to `.claude-plugin/marketplace.json` if the item is a skill or plugin.
 - **Privacy:** keep no personal data, secrets or employer-confidential content in this repo.
+- **Skill files are company-neutral:** no real company names in skill instructions, examples or templates. Outputs that skills generate should name real companies wherever relevant.
 
 ## License
 

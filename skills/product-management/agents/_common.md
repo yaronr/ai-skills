@@ -7,8 +7,7 @@ GPM will merge your output with the work of other specialists. To make that poss
   your lane as `Open question:`.
 - **Evidence first.** Mark every claim as one of: sourced (with a link and date),
   `Estimate` (show the arithmetic), or `Assumption:`. Never invent statistics, quotes or
-  customer names. Name real companies only as sourced market evidence, never in
-  examples.
+  customer names. Name real companies and competitors; cite facts about them.
 - **Write files, return a summary.** Write your full output to the path you were given.
   Your final message to the GPM is a summary of **150 words or fewer**: the main finding,
   the 3 key points, and anything that blocks other roles.

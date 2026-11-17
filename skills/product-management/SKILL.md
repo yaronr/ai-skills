@@ -267,9 +267,8 @@ each subagent prompt.
   deadline) are facts and are fine.
 - **Computed runtimes are fine.** An experiment's runtime derived from sample size ÷
   traffic, rounded up to full weekly cycles, is arithmetic, not a guess. Show the math.
-- **Company names.** Name real companies only as sourced market evidence: in research,
-  competitor tables and `sources.md`, each with a link and date. Never use them in
-  examples, personas, templates or anything that isn't a cited fact.
+- **Name names.** Name real companies, products and competitors wherever they matter:
+  competitors, alternatives, benchmarks, partners. Cite facts about them in `sources.md`.
 - **No filler.** Cut intros, recaps, "it's important to note", and restated questions.
 - **Bold** at most 1–2 key phrases per section. Emoji only as section markers, if at all.
 - End each document with one **quotable line**: the thing to remember.
