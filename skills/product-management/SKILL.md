@@ -196,6 +196,10 @@ documents drift apart.
 
 On Quick runs, skip the agents. Self-check against the quality bar instead.
 
+**Brief length gate (every tier).** Count the words: `wc -w 00-brief.md`. If it is over
+250, cut until it fits: move detail to the numbered files, never drop the decision, the
+"Decision needed" line or the reverse trigger. Recount. Don't package until it passes.
+
 ## Phase 6: Package
 
 **If a knowledge base exists,** invoke `product-ops` with the job "File deliverables". It
@@ -263,6 +267,9 @@ each subagent prompt.
   deadline) are facts and are fine.
 - **Computed runtimes are fine.** An experiment's runtime derived from sample size ÷
   traffic, rounded up to full weekly cycles, is arithmetic, not a guess. Show the math.
+- **Company names.** Name real companies only as sourced market evidence: in research,
+  competitor tables and `sources.md`, each with a link and date. Never use them in
+  examples, personas, templates or anything that isn't a cited fact.
 - **No filler.** Cut intros, recaps, "it's important to note", and restated questions.
 - **Bold** at most 1–2 key phrases per section. Emoji only as section markers, if at all.
 - End each document with one **quotable line**: the thing to remember.
@@ -289,7 +296,8 @@ item fails.
 7. **Sourced.** Every external fact is in `sources.md` with a date. No invented
    statistics: write "estimate" and show the arithmetic.
 8. **Consistent.** The same names, numbers and NSM appear across every document.
-9. **Concise.** The writing rules are met. The brief fits on one screen.
+9. **Concise.** The writing rules are met. `00-brief.md` is 250 words or fewer, by
+   `wc -w`.
 10. **No made-up timelines.** No work is estimated in hours, days, weeks or sprints. Plans
     use order, gates and S/M/L effort. No date is set by the team: each is user-given,
     sourced, or labelled as a recommendation for the owner to confirm.
