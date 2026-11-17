@@ -13,7 +13,7 @@ Ask any product question. You don't need to name the skill. Examples:
 - "Write a PRD and user stories for offline mode in our field-service app"
 - "DAU dropped 8% week over week. Why?"
 - "What should our music-streaming app build in the next 5 years?"
-- "Mock interview: design an alarm clock for people with low vision"
+- "Design an alarm clock for people with low vision"
 
 ## How it works
 
@@ -58,6 +58,6 @@ style the visual artifacts. If it is not installed, the skill falls back to the
 
 ## Sources
 
-The frameworks are adapted from GPM interview-prep cards and a GPM metrics cheat sheet.
+The frameworks are adapted from GPM framework cards and a GPM metrics reference, rewritten as working playbooks for doing the job.
 They are extended with established practice: HEART/GSM, Cagan, Torres, Lafley &
 Martin, Rumelt, Helmer, Working Backwards (PR/FAQ), INVEST and Gherkin.

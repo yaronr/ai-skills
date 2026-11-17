@@ -1,26 +1,26 @@
 # GPM Frameworks
 
-Each section is one way to answer one type of question. Every section gives the numbered
-steps, the lines to say aloud in an interview, the traps, and a closing line.
+Each section is a playbook for one type of product work: the numbered steps, the
+statement the output must make, and the quality checks.
 
-Spoken-answer habits (§10) apply to every section.
+The working principles in §10 apply to every section.
 
 **Contents:** §1 Product design · §2 Vision · §3 Analysis & metric diagnosis ·
 §4 Metrics & KPIs · §5 Strategy · §6 GTM / 0-to-1 · §7 Pricing · §8 Execution trade-off ·
-§9 Cross-org alignment · §10 On the call · §11 "What should X build in 5 years?" ·
-§12 Worked-answer pattern
+§9 Cross-org alignment · §10 Working principles · §11 "What should X build in 5 years?" ·
+§12 Worked example
 
 ---
 
 ## §1 Product design: "Design X for Y" / "Improve X"
 
-1. **Clarify** (30 seconds). Ask about the goal (engagement, revenue or trust), the
-   platform and the constraints.
+1. **Clarify.** Pin down the goal (engagement, revenue or trust), the platform and the
+   constraints. Ask the user only what you can't infer; state the rest as assumptions.
 2. **Users.** List 3–4 segments. Include people with varied life experiences:
    accessibility needs, low connectivity, older users, new to tech. Pick one segment and
-   say why. A good reason is that they feel the most pain and are underserved.
-3. **Pains / jobs.** What is hard for this segment today? Say where the insight would come
-   from: research, logs, support tickets or field visits.
+   state why. A good reason is that they feel the most pain and are underserved.
+3. **Pains / jobs.** What is hard for this segment today? Cite the evidence (research,
+   logs, support tickets, field visits) or name how to get it.
 4. **Ideas.** Generate 4–6 ideas, including one bold one. Ask what we uniquely have: our
    data, our distribution, our platform, our AI capability.
 5. **Prioritize.** Score impact × confidence ÷ effort. Pick 1–2.
@@ -28,16 +28,15 @@ Spoken-answer habits (§10) apply to every section.
 7. **Metrics.** Name a north star, the supporting metrics and a guardrail (see §4).
 8. **Risks + learning.** Plan the experiment, the beta and the feedback loop.
 
-**Say:** "Let me take 30 seconds to structure this." · "I'll go users, their pain, ideas,
-then pick one and measure it." · "I'll focus on [segment] because they feel the pain
-most and it's underserved."
+**The output states:** "We focus on [segment] because they feel the pain most and are
+underserved. We build [MVP] and measure [NSM], guarded by [metric]."
 
 **Example angles:** restaurant search → group decisions and dietary needs · maps →
 step-free routes and audio wayfinding · alarm for people with low vision → voice,
 haptics, light, works offline.
 
-**Rubric:** start from the user · articulate a vision · combine problem, tech and
-business. Close with one line.
+**Quality check:** starts from the user · has a vision · combines problem, tech and
+business · ends with a one-line summary.
 
 ---
 
@@ -53,7 +52,7 @@ business. Close with one line.
 7. **Metrics.** One north star plus a guardrail.
 8. **Won't do + risks.** Non-goals (and who serves them instead), one key risk, and the
    first test.
-9. **Close.** Repeat the headline. Ask: "Does that match what you see?"
+9. **Close.** Repeat the headline. List the assumptions the user should confirm.
 
 **Pattern:** "<Product> becomes the default <category> for <segment> on <platform>."
 Usually the growth comes from new segments and the base comes from defending existing
@@ -63,16 +62,16 @@ revenue.
 
 ## §3 Product analysis
 
-### A · "Tell me about an analysis that changed a decision"
+### A · Decision analysis: "Should we do X? What does the data say?"
 
-1. **Situation.** The decision at stake, and why it mattered.
+1. **Situation.** The decision at stake, and why it matters.
 2. **Question.** What we needed to know.
 3. **Data + method.** The sources, the interviews, the model built.
-4. **Insight.** What surprised us.
-5. **Decision + result.** What changed, with a number.
-6. **Lesson.** One sentence.
+4. **Insight.** What the data shows, including what contradicts the current plan.
+5. **Recommendation + expected result.** What should change, with a number.
+6. **Confidence + next check.** How sure we are, and what would raise confidence.
 
-Keep it to 2 minutes or less, with at least 2 numbers. The lesson to aim for: *find the
+Use at least 2 numbers, each sourced or labeled **Estimate**. A strong default: *find the
 metric the customer buys on, then model how each roadmap item moves it.*
 
 ### B · "Metric X dropped. Why?"
@@ -140,13 +139,13 @@ frameworks.
    - **Capabilities:** our tech, our platform and our team.
    - **Constraints:** margin, reliability, the org, and time.
 3. **Options.** Lay out 3 credible paths.
-4. **Recommend.** Pick one. Say the trade-off out loud.
+4. **Recommend.** Pick one. State the trade-off explicitly.
 5. **Plan.** The first 3 moves, the phasing, and who needs to be aligned.
 6. **Metrics + risks.** How we will know it is working, and what would make us change
    course.
 
-**Say:** "I'd pick [X] over [Y] because…, and I'm giving up [Z]." · "If [signal] doesn't
-happen by [milestone], I'd reshape the bet."
+**The output states:** "We pick [X] over [Y] because…, and we give up [Z]." · "If
+[signal] doesn't happen by [milestone], we reshape the bet."
 
 **Anchors to look for:** gaps in our own docs or guides · what competitors shipped
 recently, with dates · features we lack that a rival has.
@@ -212,7 +211,7 @@ See [toolkit.md](toolkit.md) for Van Westendorp and Gabor-Granger.
 
 **Scenarios:**
 
-- GA is in 3 weeks and a component fails at 5× load: go GA with limits if the design
+- GA is close and a component fails at 5× load: go GA with limits if the design
   partners fit inside them, and fix in parallel.
 - A noisy neighbor appears before launch: the customer comes first. Delay if the launch
   adds risk.
@@ -235,41 +234,37 @@ Don't ship blind, and don't slip blind.
 7. **Escalate cleanly.** If stuck, escalate together, with options.
 8. **Disagree and commit.** Then make it work.
 
-Lesson: pause, explain the why, and bring people with you before you run. Name the team,
-the ask and the metric.
+Explain the why and bring people with you before you run. Every ask names the team, the
+ask and the metric.
 
 ---
 
-## §10 On the call: habits for any spoken answer
+## §10 Working principles (apply to every section)
 
-- **Pause** 30–60 seconds. Then say the framework you will use.
+- **Think before writing.** Frame the problem and pick the framework first. Then
+  produce the output, or ask the questions that block it.
 - **Start from the user.** Then the business, then the tech.
-- **Pick a side.** Name the trade-off.
-- **Use numbers.** At least 2 per story. Say "I", not "we".
-- **Keep each story to 2 minutes or less**, then stop.
-- **Check in:** "Does that match what you see?"
-- **Never guess a fact about your own past. Never bluff about internals:** "I'd go deep
-  with engineering on that. Here's how I'd reason about it."
-- **Close** each answer with one quotable line. "To summarize: …"
-- **Leave 5 minutes** for your own questions.
-
-**STAR+ for behavioral questions:** Situation · Task · Action (I) · Result (number) ·
-Lesson.
+- **Pick a side.** Name the trade-off and what we give up.
+- **Use numbers.** Each one is sourced or labeled **Estimate** with the arithmetic.
+- **Never invent facts.** Not about the company's past, its internals or its data. If
+  it's unknown, say so, reason from what is known, and name who can confirm it.
+- **Check in on assumptions.** List the ones the user should confirm.
+- **End with one line** that sums up the decision.
 
 ---
 
 ## §11 "What should X build in 5 years?"
 
-This also fits "You're the CEO of X", "X gets $1B, what do you do?", "5-year roadmap for
-Z" and "Should X enter market Y?"
+This also fits "Where should we invest a large new budget?", "Long-range roadmap for Z"
+and "Should X enter market Y?"
 
 1. **Company.** The mission · current investments · strengths to build on · the **goal**
    to optimize for: new users, engagement, monetization, cost, or pure innovation. The
    goal you pick changes the answer.
 2. **Ecosystem & opportunities.** The users (chosen by the goal) · their biggest gaps ·
    two trends combined · competitors and how they won. Then list **3–5 opportunity areas**
-   and pick one: big user need × serves the goal × uses our strengths. Take a minute of
-   silence before picking.
+   and pick one: big user need × serves the goal × uses our strengths. Score all the
+   options before picking.
 3. **Execution.**
    - The **narrative**: an investor pitch covering who, what gap, and why us.
    - The **roadmap**: Now / Next / Later, with a milestone and exit criteria for each
@@ -277,15 +272,14 @@ Z" and "Should X enter market Y?"
    - **Start today**: the first milestone and what unlocks the next one.
    - The **risks**, and how we stop them.
 
-**Say:** "I'll start with what the company cares about, then the market, then how we'd
-make it happen." · "I see four opportunities; I'd bet on [X] because it scores highest on
-need, goal and strengths."
+**The output states:** "Of [N] opportunities, we bet on [X] because it scores highest on
+need, goal and strengths. [Runner-up] loses because…"
 
 Options come before the pick.
 
 ---
 
-## §12 Worked-answer pattern (combining §11 with §2, §5 and §6)
+## §12 Worked example (combining §11 with §2, §5 and §6)
 
 1. **Company.** The company's bets, its strengths, and a quantified goal, such as
    doubling revenue in 3 years by monetizing the base and winning new workloads.

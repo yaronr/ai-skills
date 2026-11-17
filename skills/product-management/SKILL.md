@@ -1,6 +1,6 @@
 ---
 name: product-management
-description: Acts as a full, top-tier product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Also use it for PM interview practice. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework".
+description: Acts as a full, top-tier product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework".
 ---
 
 # Product Management: a GPM-led product team
@@ -23,7 +23,7 @@ research anything or spawn any agent.
 
 | Tier | Typical ask | Team |
 |---|---|---|
-| **Quick** | One framework answer: "metrics for X", "why did DAU drop", interview practice | You alone, or 1–2 agents |
+| **Quick** | One framework answer: "metrics for X", "why did DAU drop", a quick prioritization | You alone, or 1–2 agents |
 | **Standard** | One feature or problem: "PRD + stories for X", "should we build X" | 4–6 agents |
 | **Full** | Strategy, vision, 0-to-1, GTM, or "what should X build in 5 years" | 7–10 agents, two waves, red team |
 
@@ -124,9 +124,8 @@ Follow the GPM habits: start from the user, then business, then tech.
 | Pricing | §7 Pricing | Pricing memo · Packaging table · WTP test plan |
 | Execution trade-off (ship vs slip, scope) | §8 Trade-off | Decision record (door type, reverse trigger) |
 | Cross-org alignment | §9 Alignment | Alignment one-pager · Stakeholder map |
-| "What should X build in 5 years / you're CEO / $1B" | §11 Company→Ecosystem→Execution | Brief · Opportunity scoring · Vision · Roadmap · First-6-months plan |
+| "What should X build in 5 years" / long-range bets | §11 Company→Ecosystem→Execution | Brief · Opportunity scoring · Vision · Roadmap · First-milestone plan |
 | Prioritization / roadmap | [toolkit.md](references/toolkit.md) RICE / ICE / Kano / OST | Scored backlog · Roadmap |
-| Interview practice | Matching § + §10 On the call | Spoken-answer script (≤2 min when spoken) + critique |
 
 Load **only** the reference sections you need. They are written to be skimmed.
 
@@ -181,7 +180,7 @@ Read the research. Then:
 
 1. List **3 credible options**, never 1. Options must come before the pick.
 2. Score the options. Use need × goal × our strengths, or RICE for features.
-3. **Pick one.** State the trade-off aloud: "X over Y because…, giving up Z."
+3. **Pick one.** State the trade-off explicitly: "X over Y because…, giving up Z."
 4. Set a **reverse trigger**: "If <signal> isn't true by <milestone>, reshape the bet."
 
 On Full runs, the strategist drafts this phase and you challenge it. The decision is
@@ -304,7 +303,7 @@ item fails.
   covering its home, layout, ingestion, filing and hygiene.
 
 - [references/frameworks.md](references/frameworks.md): the step-by-step GPM frameworks
-  (§1–§11) and lines to say aloud.
+  (§1–§12) and working principles.
 - [references/metrics.md](references/metrics.md): metric definitions, formulas,
   benchmarks and traps, plus HEART, GSM, AARRR, NSM and PMF.
 - [references/toolkit.md](references/toolkit.md): prioritization, discovery, strategy and

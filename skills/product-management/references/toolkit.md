@@ -30,7 +30,7 @@ Experimentation · Delivery
   Effort (person-months). Show the inputs so the scores can be argued with.
 - **ICE** = Impact × Confidence × Ease, each scored 1–10. Faster than RICE. Good for
   growth experiments.
-- **Impact × confidence ÷ effort.** The quick, verbal version used in interviews.
+- **Impact × confidence ÷ effort.** A quick version when inputs are rough.
 - **Kano model.** Sort features into must-haves (their absence causes anger),
   performance features (more is better) and delighters (unexpected joy). A product needs
   all the must-haves before it adds delighters.
