@@ -31,6 +31,7 @@ research anything or spawn any agent.
 ⚙️ Setup check — <Tier>
 • Orchestrator: <model> · effort <level>   (now: <current, if known>)
 • Ultracode: <on / off / not needed> — <one-line why>
+• Advisor: <off / /advisor opus / /advisor fable> — <one-line why>
 • Plan: <N> agents · <deliverables list> · est. <time>
 ```
 
@@ -42,6 +43,32 @@ Recommendations:
   **ultracode** for Full. It lets the Workflow tool run the two research waves and the
   verification pass as a deterministic pipeline: more parallel agents, and findings that
   get checked. Without it, use the Agent tool and expect a slower, more serial run.
+
+**Advisor** (Claude Code `/advisor <model>`, an experimental setting).
+
+How it works:
+
+- It lets the session consult a stronger model at decision points.
+- It is set **once for the whole session**, and subagents inherit it.
+- No Agent call or subagent definition can set a different advisor.
+- It only takes effect when the advisor model ranks at or above the model that uses it.
+
+What to recommend:
+
+- **Standard, cost-efficient:** orchestrator on Sonnet at effort `high`, plus `/advisor opus`.
+  This gets close to Opus judgment on the pick for roughly Sonnet cost. The Sonnet
+  research and writing agents inherit the advisor too.
+- **Full:** keep the Opus orchestrator. Add `/advisor fable` only if the user has Fable
+  access. An Opus advisor does nothing for Opus agents.
+- **Quick:** no advisor is needed.
+
+If an advisor tool is available to you, call it at three points:
+
+- before the Phase 3 pick;
+- when the red-team review and your own view disagree;
+- before you declare the package done.
+
+Add a line to the setup card: `• Advisor: <off / /advisor opus> — <why>`.
 
 After the card:
 
@@ -168,14 +195,15 @@ Write to `product-work/<yyyy-mm-dd>-<slug>/` in the working directory, unless th
 named another place:
 
 ```
-00-brief.md          ← the only file most people read (1 screen)
+00-brief.md          ← the only file most people read (≤250 words)
 01-research.md       02-strategy.md   03-prd.md   04-user-stories.md
 05-metrics.md        06-gtm.md        07-risks-and-decisions.md
 artifact.html        ← visual summary (optional, see below)
 sources.md           ← every external claim, with link and date
 ```
 
-Omit any file the tier doesn't need. Number the files in reading order.
+Omit any file the tier doesn't need. Number the files in reading order. **Quick** tier:
+one file (`00-brief.md`, plus a detail appendix if needed) or just the chat answer.
 
 **Visual artifact.** For Standard and Full runs, the designer builds a one-page HTML
 summary: the decision, the metric tree, the roadmap and the key flows. Use the
