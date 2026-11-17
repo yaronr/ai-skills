@@ -34,17 +34,19 @@ The full spec is in [references/knowledge-base.md](references/knowledge-base.md)
 
 ## Helper script
 
+`<skill-dir>` is this skill's folder (for example `~/.claude/skills/product-ops`).
+
 ```bash
-python3 scripts/kb.py init  product --name "My Product"
+python3 <skill-dir>/scripts/kb.py init  product --name "My Product"
 ```
 ```bash
-python3 scripts/kb.py audit docs --out plan.md
+python3 <skill-dir>/scripts/kb.py audit docs --kb product --out plan.md
 ```
 ```bash
-python3 scripts/kb.py index product
+python3 <skill-dir>/scripts/kb.py index product
 ```
 ```bash
-python3 scripts/kb.py lint  product
+python3 <skill-dir>/scripts/kb.py lint  product
 ```
 
 - `init` scaffolds the KB.

@@ -23,7 +23,9 @@ roadmap · PR/FAQ · Alignment one-pager · sources.md
 
 | Goal | North star | Guardrail | First milestone |
 |---|---|---|---|
-| <growth/engagement/…> | <metric + target> | <metric + limit> | <what by when> |
+| <growth/engagement/…> | <metric + target> | <metric + limit> | <what · gate> |
+
+**Decision needed:** <what> · from <role> · before <gate/milestone>
 
 ## Why this, why now
 - <signal 1 (source)> · <signal 2> · <signal 3>
@@ -86,7 +88,7 @@ North star · drivers · guardrail · instrumentation events (see 05-metrics)
 Allow list → preview → GA · exit criteria for each stage · rollback plan
 
 ## Risks · Dependencies · Open questions
-| Item | Type | Owner | Mitigation / due |
+| Item | Type | Owner | Mitigation · by milestone/gate |
 |---|---|---|---|
 ```
 
@@ -143,7 +145,7 @@ Guardrails: <reliability> · <margin> · <trust>
 |---|---|---|
 
 ## Experiment plan
-Hypothesis · primary metric · guardrails · MDE · sample size · duration · decision rule
+Hypothesis · primary metric · guardrails · MDE · sample size · runtime (sample ÷ traffic, full weeks) · decision rule
 ```
 
 ---
@@ -207,7 +209,7 @@ Hypothesis · primary metric · guardrails · MDE · sample size · duration · 
 
 **Channels:** PLG · sales attach · SAs · marketing · partners (who opens which segment)
 
-| Stage | Who | Exit criteria | Target date (user-set or TBD) |
+| Stage | Who | Exit criteria | Target date (user-set, recommended, or TBD) |
 |---|---|---|---|
 | Allow list | 5 design partners | <…> | |
 | Preview | <…> | <…> | |
@@ -233,7 +235,8 @@ Hypothesis · primary metric · guardrails · MDE · sample size · duration · 
 
 ```markdown
 # <Question>: <answer in one line>
-Situation → Question → Data + method → Insight → Decision + result → Lesson
+Situation → Question → Data + method → Insight → Recommendation + expected result →
+Confidence + next check
 (Diagnosis: Real? → Where? → Who? → Which step? → hypothesis table)
 | Hypothesis | For | Against | Query to confirm | Owner |
 ```

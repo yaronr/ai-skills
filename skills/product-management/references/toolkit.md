@@ -1,6 +1,6 @@
 # PM Toolkit
 
-These are extra frameworks beyond the core cards. Pick the one that fits the question.
+These are extra frameworks beyond the core playbooks in frameworks.md. Pick the one that fits the question.
 Don't use a framework for its own sake.
 
 **Contents:** Discovery · Prioritization · Strategy · Decisions & risk · Pricing research ·
@@ -27,7 +27,7 @@ Experimentation · Delivery
 ## Prioritization
 
 - **RICE** = Reach × Impact (3, 2, 1, 0.5 or 0.25) × Confidence (100%, 80% or 50%) ÷
-  Effort (person-months). Show the inputs so the scores can be argued with.
+  Effort (relative points: S = 1, M = 2, L = 3, or team-agreed points). Show the inputs so the scores can be argued with.
 - **ICE** = Impact × Confidence × Ease, each scored 1–10. Faster than RICE. Good for
   growth experiments.
 - **Impact × confidence ÷ effort.** A quick version when inputs are rough.

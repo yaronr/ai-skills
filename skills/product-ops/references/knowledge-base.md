@@ -111,7 +111,7 @@ title: Techs re-type notes from paper after losing signal
 confidence: high        # high = ≥3 independent sources · medium = 2 · low = 1/anecdote
 segments: [field-tech]
 tags: [offline, data-loss]
-evidence: [../interviews/2026-10-02-acme-tech.md, ../feedback/2026-10-support.md]
+evidence: [../interviews/2026-10-02-c017-field-tech.md, ../feedback/2026-10-support.md]
 ---
 **Insight:** <one sentence>
 **Evidence:** <2–4 bullets with links>
@@ -217,12 +217,12 @@ exports:
 
 ## 7 · Helper script
 
-`scripts/kb.py` uses only the Python standard library. Run it with the path to the KB
-root.
+`scripts/kb.py` uses only the Python standard library. Call it by the skill's own
+folder (`<skill-dir>/scripts/kb.py`), not a path relative to the user's project.
 
 | Command | Does |
 |---|---|
-| `python3 scripts/kb.py init <root> --name "<Product>"` | Scaffolds the core folders, `product.yaml`, README, glossary and CHANGELOG. Skips any file that already exists. |
-| `python3 scripts/kb.py index <root>` | Rebuilds `INDEX.md`, grouping documents by type, then status, then recency. |
-| `python3 scripts/kb.py lint <root>` | Reports missing front matter, unknown types or statuses, stale docs and broken relative links. |
-| `python3 scripts/kb.py audit <root> [--out plan.md]` | Classifies existing files and proposes a **move plan** of `git mv` lines. It never moves anything itself. |
+| `python3 <skill-dir>/scripts/kb.py init <root> --name "<Product>"` | Scaffolds the core folders, `product.yaml`, README, glossary and CHANGELOG. Skips any file that already exists. |
+| `python3 <skill-dir>/scripts/kb.py index <root>` | Rebuilds `INDEX.md`, grouping documents by type, then status, then recency. |
+| `python3 <skill-dir>/scripts/kb.py lint <root>` | Reports missing front matter, unknown types or statuses, stale docs, broken relative links, and `evidence`/`supersedes`/`sources` paths that don't exist. |
+| `python3 <skill-dir>/scripts/kb.py audit <src> --kb <root> [--out plan.md]` | Classifies the files under `<src>` and writes a runnable **move plan** into the KB at `<root>` (`mkdir -p` + `git mv`, paths relative to where you run it). Moves into `initiatives/` wait for you to pick the folder. Notes that contain a decision stay put and are listed for a new decision record. It never moves anything itself. |

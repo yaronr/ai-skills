@@ -31,9 +31,9 @@ The working principles in §10 apply to every section.
 **The output states:** "We focus on [segment] because they feel the pain most and are
 underserved. We build [MVP] and measure [NSM], guarded by [metric]."
 
-**Example angles:** restaurant search → group decisions and dietary needs · maps →
-step-free routes and audio wayfinding · alarm for people with low vision → voice,
-haptics, light, works offline.
+**Example angles:** group ordering → split decisions and dietary needs · field-service
+app → offline work in dead zones · banking app for older users → larger targets, voice,
+fraud reassurance.
 
 **Quality check:** starts from the user · has a vision · combines problem, tech and
 business · ends with a one-line summary.
@@ -65,8 +65,8 @@ revenue.
 ### A · Decision analysis: "Should we do X? What does the data say?"
 
 1. **Situation.** The decision at stake, and why it matters.
-2. **Question.** What we needed to know.
-3. **Data + method.** The sources, the interviews, the model built.
+2. **Question.** What we need to know.
+3. **Data + method.** The sources, the research, the model we build.
 4. **Insight.** What the data shows, including what contradicts the current plan.
 5. **Recommendation + expected result.** What should change, with a number.
 6. **Confidence + next check.** How sure we are, and what would raise confidence.
@@ -113,13 +113,14 @@ evidence against · query · owner).
 - Useful arithmetic: doubling in 3 years needs about 26% growth a year. Revenue =
   customers × spend × retention.
 
-**Example tree (B2B infrastructure):**
+**Example trees:**
 
-- Business: revenue or units under management, and NRR.
-- Funnel: time to first value, and the % of eligible accounts that adopt.
-- Engagement: weekly active workspaces, eval → production conversion, resume rate, p99
-  latency.
-- Guardrails: SLO attainment, gross margin per unit, tickets per unit.
+| | B2B SaaS | Consumer app | Marketplace |
+|---|---|---|---|
+| Business | NRR, ARR | Subscribers, ARPU | GMV, take rate |
+| Funnel | Time to first value | Activation (day-1 aha) | Search → transaction |
+| Engagement | Weekly active teams | Weekly active users doing the core action | Repeat transactions |
+| Guardrails | SLO, gross margin, tickets per account | Crash rate, unsubscribes | Cancellations, fraud, supply churn |
 
 See [metrics.md](metrics.md) for definitions, benchmarks and the HEART, GSM and AARRR
 frameworks.
@@ -211,10 +212,10 @@ See [toolkit.md](toolkit.md) for Van Westendorp and Gabor-Granger.
 
 **Scenarios:**
 
-- GA is close and a component fails at 5× load: go GA with limits if the design
-  partners fit inside them, and fix in parallel.
-- A noisy neighbor appears before launch: the customer comes first. Delay if the launch
-  adds risk.
+- GA is close and a component fails at peak load: go GA with published limits if the
+  launch customers fit inside them, and fix in parallel.
+- A late defect risks user data or trust: the customer comes first. Slip.
+- A nice-to-have feature is late: cut it from scope and ship on the gate.
 - Adoption is below plan: read the funnel and fix the biggest drop.
 
 **Life cycle:** idea → allow list → preview → GA → telemetry + feedback → iterate.
@@ -282,15 +283,15 @@ Options come before the pick.
 ## §12 Worked example (combining §11 with §2, §5 and §6)
 
 1. **Company.** The company's bets, its strengths, and a quantified goal, such as
-   doubling revenue in 3 years by monetizing the base and winning new workloads.
+   doubling revenue by monetizing the base and winning new segments.
 2. **Ecosystem.** About 6 segments. Lead with the growth segment and defend the base.
-   List the gaps (missing tier, bad defaults, absent from key guides), 2 trends, and the
+   List the gaps (missing tier, weak onboarding, poor defaults), 2 trends, and the
    rivals.
 3. **Pick.** Three pillars: growth · funnel · today's revenue. Adjacent ideas become
    features, not pillars.
 4. **Execution.** The pitch is the vision headline. Use the three-horizon roadmap. For the
-   first milestone, get design partners into production, fix the top funnel defect, and
-   launch a migration offer. List the risks, each with a kill check tied to a milestone.
+   first milestone, get design partners live, fix the top funnel defect, and launch a
+   switching offer. List the risks, each with a kill check tied to a milestone.
 5. **Why A wins.** Need · goal (new spend, not spend shifted from elsewhere) · strength ·
    timing.
 6. **Why not C first.** Name the runner-up and why it loses. For example, it shifts spend

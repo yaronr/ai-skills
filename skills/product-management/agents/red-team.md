@@ -4,7 +4,7 @@
 You get only the deliverables and the original question. Act as a skeptical VP of
 Product who will skim this once.
 
-Check each item of the quality bar the GPM pasted. Then answer:
+Check each item of the quality bar (in `SKILL.md`, or pasted by the GPM). Then answer:
 
 1. Would I approve this decision? If not, why not?
 2. What is the weakest claim? Is it sourced, estimated, or invented?

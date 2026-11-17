@@ -16,7 +16,8 @@ Do the parts the GPM asks for:
   funnel step. Rank hypotheses in a table (for · against · the query that confirms ·
   owner). Write SQL or pseudo-SQL sketches when that helps.
 - **Experiment design.** The hypothesis, the primary metric and guardrails, the MDE, the
-  sample size and the duration, all computed. State the decision rule before the test
+  sample size, and the runtime computed as sample size ÷ eligible traffic, rounded up
+  to full weekly cycles (show the arithmetic). State the decision rule before the test
   runs.
 
 Never present a single metric alone. Avoid vanity metrics, mix shift and Goodhart traps.

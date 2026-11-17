@@ -1,6 +1,6 @@
 ---
 name: product-management
-description: Acts as a full, top-tier product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework".
+description: Acts as a full, top-tier product team led by a Group Product Manager (GPM). It turns any product question into a short set of decision-ready documents. Use it for product strategy, product vision and multi-year roadmaps, PRDs, user stories with acceptance criteria, metrics and KPIs (north star, guardrails, HEART), metric-drop diagnosis, go-to-market and 0-to-1 launches, pricing, prioritization, execution trade-offs, cross-team alignment, competitive analysis, and "what should X build" or "should we enter market Y" questions. Trigger it whenever someone asks what to build, why, for whom, how to measure it, or how to launch it, even if they never say "product manager" or "framework". Also use it to revise an existing PRD, strategy or roadmap after feedback. Not for interview prep or coaching. For filing, organizing or searching product docs, use product-ops.
 ---
 
 # Product Management: a GPM-led product team
@@ -44,38 +44,22 @@ Recommendations:
   verification pass as a deterministic pipeline: more parallel agents, and findings that
   get checked. Without it, use the Agent tool and expect a slower, more serial run.
 
-**Advisor** (Claude Code `/advisor <model>`, an experimental setting).
-
-How it works:
-
-- It lets the session consult a stronger model at decision points.
-- It is set **once for the whole session**, and subagents inherit it.
-- No Agent call or subagent definition can set a different advisor.
-- It only takes effect when the advisor model ranks at or above the model that uses it.
-
-What to recommend:
-
-- **Standard, cost-efficient:** orchestrator on Sonnet at effort `high`, plus `/advisor opus`.
-  This gets close to Opus judgment on the pick for roughly Sonnet cost. The Sonnet
-  research and writing agents inherit the advisor too.
-- **Full:** keep the Opus orchestrator. Add `/advisor fable` only if the user has Fable
-  access. An Opus advisor does nothing for Opus agents.
-- **Quick:** no advisor is needed.
-
-If an advisor tool is available to you, call it at three points:
-
-- before the Phase 3 pick;
-- when the red-team review and your own view disagree;
-- before you declare the package done.
-
-Add a line to the setup card: `• Advisor: <off / /advisor opus> — <why>`.
+**Advisor** (`/advisor <model>`, experimental). Set once per session; subagents inherit
+it; it must rank at or above the model using it.
+- **Standard, cost-efficient:** Sonnet orchestrator (effort `high`) + `/advisor opus`.
+- **Full:** Opus orchestrator; add `/advisor fable` only if the user has Fable access.
+- **Quick:** none.
+- If an advisor tool is available, call it before the Phase 3 pick, when the red team
+  disagrees with you, and before declaring done.
 
 After the card:
 
 - **If the current setup meets the recommendation**, proceed without asking.
 - **If it falls short and the tier is Full**, ask once. Offer two choices: "switch first
   (`/model`, `/effort`, or add `ultracode` to your prompt)" or "proceed as is". Changing the
-  model is the user's decision, and a Full run on a weak setup wastes their time.
+  model is the user's decision.
+- **If no user can answer** (an automated or headless run), don't wait. Proceed as is and
+  note the gap on the setup card.
 - **If it falls short and the tier is Quick or Standard**, proceed. Note the gap in one
   line.
 
@@ -116,7 +100,7 @@ Follow the GPM habits: start from the user, then business, then tech.
 |---|---|---|
 | Design a product or feature for users | §1 Product design | Brief · Research synthesis · PRD · User stories · Metrics spec |
 | Vision, 3–5 years | §2 Vision | Brief · Vision narrative · Roadmap (Now/Next/Later) · Metrics |
-| "Tell me about an analysis" / sizing / modelling | §3A Analysis | Brief · Analysis memo |
+| "Should we do X?" / sizing / modelling | §3A Decision analysis | Brief · Analysis memo |
 | "Metric X dropped, why?" | §3B Metric diagnosis | Diagnosis tree · Hypothesis table · Next queries |
 | Metrics / KPIs / OKRs | §4 Metrics + [metrics.md](references/metrics.md) | Metrics spec (tree, NSM, guardrails, targets) |
 | Strategy / "should we…" | §5 Strategy (5 Cs) | Strategy memo · Options matrix · Decision record |
@@ -126,12 +110,15 @@ Follow the GPM habits: start from the user, then business, then tech.
 | Cross-org alignment | §9 Alignment | Alignment one-pager · Stakeholder map |
 | "What should X build in 5 years" / long-range bets | §11 Company→Ecosystem→Execution | Brief · Opportunity scoring · Vision · Roadmap · First-milestone plan |
 | Prioritization / roadmap | [toolkit.md](references/toolkit.md) RICE / ICE / Kano / OST | Scored backlog · Roadmap |
+| Revise an existing doc (PRD, strategy, roadmap) after feedback | The § of the original doc | Revised doc · change log (what changed, why, whose feedback) · updated brief |
 
 Load **only** the reference sections you need. They are written to be skimmed.
 
 ## Phase 2: Discover (parallel subagents)
 
-Spawn the research roles **in one message** so they run concurrently. Give each one the
+Run Discover in **two waves**. Wave 1: spawn user-researcher, market-analyst and
+data-analyst **in one message** so they run concurrently. Wave 2 (Full only): spawn the
+strategist with the wave-1 summaries, since it builds options from them. Give each one the
 knowledge-base paths from the Brief. Internal evidence beats web evidence.
 
 **No Agent tool?** That happens, for example, when this skill runs inside a subagent.
@@ -139,8 +126,7 @@ Play the roles yourself, one after another, using the same role files. Then do t
 Phase 5 review as a separate, deliberate pass. Note in the setup card that you are
 running solo.
 
- Use the
-`general-purpose` agent type. Each role brief is in `agents/`.
+Use the `general-purpose` agent type. Each role brief is in `agents/`.
 
 Build each prompt from these parts, in order:
 
@@ -213,7 +199,7 @@ On Quick runs, skip the agents. Self-check against the quality bar instead.
 ## Phase 6: Package
 
 **If a knowledge base exists,** invoke `product-ops` with the job "File deliverables". It
-files the work into `initiatives/<slug>/` and extracts insights and decisions into the
+files the work into `initiatives/<yyyy>-q<n>-<slug>/` and extracts insights and decisions into the
 right folders.
 
 **If none exists,** write to `product-work/<yyyy-mm-dd>-<slug>/` in the working directory. In
@@ -226,6 +212,12 @@ The file set is the same in both locations, unless the user named another place:
 00-brief.md          ← the only file most people read (≤250 words)
 01-research.md       02-strategy.md   03-prd.md   04-user-stories.md
 05-metrics.md        06-gtm.md        07-risks-and-decisions.md
+```
+
+Other routes reuse the numbers for their main document: `01-analysis.md` (diagnosis or
+decision analysis), `02-vision-roadmap.md`, `02-pricing.md`, `02-alignment.md`.
+
+```
 artifact.html        ← visual summary (optional, see below)
 sources.md           ← every external claim, with link and date
 ```
@@ -259,14 +251,18 @@ each subagent prompt.
 - **Decisive.** Pick a side. Name the trade-off. Mark each uncertainty as `Assumption:`
   or `Open question:`, never as hedging prose.
 - **Owned.** Every action has an owner (a role) and a milestone, gate or phase.
-- **No duration guesses.** Don't estimate how long work takes, in hours, days, weeks or
-  sprints, for humans or for agents. Neither you nor the subagents can know it. Plan with
-  three things instead:
+- **No wall-clock estimates.** Don't estimate how long work takes, in hours, days, weeks
+  or sprints, for humans or for agents. Neither you nor the subagents can know it. Plan
+  with three things instead:
   - **order and dependencies:** first, next, after X;
   - **gates:** exit criteria;
-  - **relative size:** S, M or L.
-- **Dates.** Use a calendar date only when the user gave it or it is a sourced fact.
-  Otherwise write `Target date: TBD (owner)`.
+  - **relative effort:** S, M or L. Effort sizing is fine; it is not a duration.
+- **Dates.** Don't set dates. You may **ask** the user for dates, and you may
+  **recommend** one, labelled `Recommended date: <date> (owner to confirm)` with the reason.
+  Otherwise write `Target date: TBD (owner)`. Sourced dates (a past event, a published
+  deadline) are facts and are fine.
+- **Computed runtimes are fine.** An experiment's runtime derived from sample size ÷
+  traffic, rounded up to full weekly cycles, is arithmetic, not a guess. Show the math.
 - **No filler.** Cut intros, recaps, "it's important to note", and restated questions.
 - **Bold** at most 1–2 key phrases per section. Emoji only as section markers, if at all.
 - End each document with one **quotable line**: the thing to remember.
@@ -295,7 +291,8 @@ item fails.
 8. **Consistent.** The same names, numbers and NSM appear across every document.
 9. **Concise.** The writing rules are met. The brief fits on one screen.
 10. **No made-up timelines.** No work is estimated in hours, days, weeks or sprints. Plans
-    use order, gates and S/M/L. Every date was given by the user or is sourced.
+    use order, gates and S/M/L effort. No date is set by the team: each is user-given,
+    sourced, or labelled as a recommendation for the owner to confirm.
 
 ## Reference map
 

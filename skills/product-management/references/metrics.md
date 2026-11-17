@@ -74,7 +74,7 @@ The NSM is the one metric that captures the value delivered to users *and* leads
 | Product type | Example NSM |
 |---|---|
 | B2B collaboration | Messages sent within teams per week |
-| Marketplace | Nights booked per month |
+| Marketplace | Successful transactions per month (both sides satisfied) |
 | Streaming | Listening time per active user |
 | Developer platform | Weekly active projects running in production |
 | AI assistant | Tasks completed and accepted per weekly user |

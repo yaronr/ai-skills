@@ -11,5 +11,6 @@
    commits) and predictability (caps, alerts). Recommend a design-partner pricing test.
 4. **Channels.** PLG, sales attach, solution architects, marketing and partners. Say which
    channel opens which segment, and which reference customer unlocks each channel.
-5. **Launch stages.** Allow list → preview → GA, with exit criteria and dates.
+5. **Launch stages.** Allow list → preview → GA, with exit criteria. Ask for target dates, or recommend them
+   labelled `Recommended date: <date> (owner to confirm)`; never set them.
 6. **The first thing to validate**, and how to validate it.
