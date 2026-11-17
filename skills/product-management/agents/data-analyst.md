@@ -10,7 +10,7 @@ Do the parts the GPM asks for:
 - **Metric tree.** Give an NSM that leads revenue, 2–3 drivers mapped to teams, and at
   least 1 guardrail. Then give the HEART/GSM rows where they are relevant.
 - **Metrics spec.** Use the template. Every metric has a formula, a unit, a window, a
-  baseline (or "TBD, plus how to get it"), a target with a date, a cadence, whether it is
+  baseline (or "TBD, plus how to get it"), a target tied to a milestone, a cadence, whether it is
   leading or lagging, and a kill criterion.
 - **Metric-drop diagnosis.** Check whether the drop is real, then where, who, and which
   funnel step. Rank hypotheses in a table (for · against · the query that confirms ·

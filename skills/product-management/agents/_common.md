@@ -13,6 +13,7 @@ GPM will merge your output with the work of other specialists. To make that poss
   the 3 key points, and anything that blocks other roles.
 - **Writing rules.** Line 1 is the answer, followed by a TL;DR of 3 bullets or fewer. Keep
   sentences to 20 words or fewer. Prefer bullets and tables. Use numbers instead of
-  adjectives. No filler. Pick a side.
+  adjectives. No filler. Pick a side. Never estimate durations (hours, days, sprints). Use order,
+  gates and S/M/L size. Use dates only when the GPM gave them.
 - **Templates.** If the GPM pasted a template, use it. Delete any section that does not
   apply.

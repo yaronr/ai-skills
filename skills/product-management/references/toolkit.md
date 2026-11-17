@@ -67,10 +67,10 @@ Experimentation · Delivery
 
 - **One-way vs two-way doors.** Make reversible decisions fast and at a low level.
   Irreversible decisions need slow, senior review.
-- **Pre-mortem.** "It's 12 months from now and this failed. Why?" List the causes. Each
+- **Pre-mortem.** "It's after launch and this failed. Why?" List the causes. Each
   big cause needs a mitigation or a tripwire.
 - **Reverse trigger / kill criteria.** Write these down before launch. Name the metric,
-  the threshold and the date.
+  the threshold and the milestone.
 - **DACI / RAPID.** Name who **D**rives or **D**ecides, who **A**pproves, who
   **C**ontributes and who is **I**nformed. Name exactly one decider.
 - **Disagree and commit.** Once the decision is made, everyone executes fully.
@@ -92,7 +92,7 @@ Experimentation · Delivery
 ## Experimentation
 
 - **Hypothesis format:** "We believe [change] for [segment] will move [metric] by [X] because
-  [insight]. We'll know when [result] by [date]."
+  [insight]. We'll know when [result] at [sample size / milestone]."
 - **A/B basics.** Fix the primary metric and the guardrails before the test starts.
   Calculate the sample size (MDE, α = 0.05, power = 0.8). Run for at least one full
   business cycle. Do not peek at results early.

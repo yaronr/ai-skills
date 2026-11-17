@@ -19,7 +19,7 @@ roadmap · PR/FAQ · Alignment one-pager · sources.md
 **TL;DR**
 - <Recommendation + the trade-off>
 - <Why: the strongest evidence, with a number>
-- <What happens next: owner + date>
+- <What happens next: owner + milestone>
 
 | Goal | North star | Guardrail | First milestone |
 |---|---|---|---|
@@ -34,7 +34,7 @@ roadmap · PR/FAQ · Alignment one-pager · sources.md
 
 ## Risks + reverse trigger
 - <Risk> → <mitigation>
-- **Reverse trigger:** if <metric> < <X> by <date>, we <reshape/stop>.
+- **Reverse trigger:** if <metric> < <X> by <milestone>, we <reshape/stop>.
 
 ## Open questions · Assumptions
 - Open: <…> (owner)
@@ -131,7 +131,7 @@ NSM
 Guardrails: <reliability> · <margin> · <trust>
 
 ## Definitions
-| Metric | Formula | Unit · window | Baseline | Target (date) | Cadence | L/L | Kill criterion |
+| Metric | Formula | Unit · window | Baseline | Target (by milestone) | Cadence | L/L | Kill criterion |
 |---|---|---|---|---|---|---|---|
 
 ## HEART / GSM (if UX-heavy)
@@ -165,7 +165,7 @@ Hypothesis · primary metric · guardrails · MDE · sample size · duration · 
 ## Recommendation
 - **Where to play:** <segment/market>
 - **How to win:** <advantage (7 Powers type)>
-- **First 3 moves:** 1) … (owner, date) 2) … 3) …
+- **First 3 moves:** 1) … (owner, exit criterion) 2) … 3) …
 - **Who must align:** <teams + their win>
 
 ## Metrics + what would change our mind
@@ -186,7 +186,7 @@ Hypothesis · primary metric · guardrails · MDE · sample size · duration · 
 **Context:** <2–3 bullets with numbers>
 **Options:** A · B · C (one line each)
 **Why:** <reason> · **Trade-off accepted:** <…>
-**Reverse trigger:** <metric, threshold, date>
+**Reverse trigger:** <metric, threshold, milestone>
 **Communicated to:** <sales/SAs/customers/…>
 ```
 
@@ -207,7 +207,7 @@ Hypothesis · primary metric · guardrails · MDE · sample size · duration · 
 
 **Channels:** PLG · sales attach · SAs · marketing · partners (who opens which segment)
 
-| Stage | Who | Exit criteria | Date |
+| Stage | Who | Exit criteria | Target date (user-set or TBD) |
 |---|---|---|---|
 | Allow list | 5 design partners | <…> | |
 | Preview | <…> | <…> | |
@@ -249,9 +249,9 @@ Situation → Question → Data + method → Insight → Decision + result → L
 
 | Horizon | Outcome | Bets | Milestone / metric |
 |---|---|---|---|
-| Now (0–12 mo) | | | |
-| Next (1–3 yr) | | | |
-| Later (3–5 yr) | | | |
+| Now | | | |
+| Next | | | |
+| Later | | | |
 
 **Won't do:** <… → who serves it> · **Key risk:** <…> · **First test:** <…>
 ```
@@ -273,7 +273,7 @@ Situation → Question → Data + method → Insight → Decision + result → L
 - The problem.
 - The options.
 - The proposal.
-- The asks: team, ask and date.
+- The asks: team, ask and the milestone it unblocks.
 - The boundary: who owns what.
 - The escalation path.
 

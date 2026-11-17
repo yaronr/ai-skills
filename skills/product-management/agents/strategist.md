@@ -11,7 +11,7 @@
    matrix.
 5. **Recommend.** "X over Y because…; giving up Z." Name the runner-up and say why it
    loses.
-6. **Plan.** The first 3 moves (owner and date), the three-horizon roadmap, and who must
+6. **Plan.** The first 3 moves (owner and exit criterion), the three-horizon roadmap, and who must
    align along with what each of them wins.
 7. **Pre-mortem.** The top 3 ways this fails. For each, a mitigation and a tripwire.
    Then the **reverse trigger**.

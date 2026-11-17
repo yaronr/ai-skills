@@ -113,7 +113,7 @@ For every metric in a spec, record:
 - The **window** and the **segment cuts**.
 - The **data source** and the owner.
 - The **baseline**. If it is unknown, write "TBD, plus how to get it".
-- The **target**, and the date to hit it.
+- The **target**, and the milestone by which to hit it.
 - The **review cadence**.
 - **Leading or lagging**.
 - The **paired guardrail**.

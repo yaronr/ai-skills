@@ -48,7 +48,8 @@ business. Close with one line.
 3. **Who.** Describe segments as *buyers*, not as user types. Pick one to lead.
 4. **Their pain.** What hurts for that segment today?
 5. **What we become.** 2–3 pillars, usually one each for growth, funnel and base.
-6. **Roadmap.** Three horizons: 0–12 months · 1–3 years · 3–5 years.
+6. **Roadmap.** Three horizons: Now · Next · Later. Each one is defined by milestones and
+   exit criteria, not by durations. Attach calendar ranges only if the user set them.
 7. **Metrics.** One north star plus a guardrail.
 8. **Won't do + risks.** Non-goals (and who serves them instead), one key risk, and the
    first test.
@@ -145,7 +146,7 @@ frameworks.
    course.
 
 **Say:** "I'd pick [X] over [Y] because…, and I'm giving up [Z]." · "If [signal] doesn't
-happen by [month 6], I'd reshape the bet."
+happen by [milestone], I'd reshape the bet."
 
 **Anchors to look for:** gaps in our own docs or guides · what competitors shipped
 recently, with dates · features we lack that a rival has.
@@ -271,8 +272,9 @@ Z" and "Should X enter market Y?"
    silence before picking.
 3. **Execution.**
    - The **narrative**: an investor pitch covering who, what gap, and why us.
-   - The **roadmap**: 2–5 years, with milestones every 6–12 months.
-   - **Start today**: the first 6 months.
+   - The **roadmap**: Now / Next / Later, with a milestone and exit criteria for each
+     step.
+   - **Start today**: the first milestone and what unlocks the next one.
    - The **risks**, and how we stop them.
 
 **Say:** "I'll start with what the company cares about, then the market, then how we'd
@@ -292,9 +294,9 @@ Options come before the pick.
    rivals.
 3. **Pick.** Three pillars: growth · funnel · today's revenue. Adjacent ideas become
    features, not pillars.
-4. **Execution.** The pitch is the vision headline. Use the three-horizon roadmap. In the
-   first 6 months, get design partners into production, fix the top funnel defect, and
-   launch a migration offer. List the risks, each with a kill check at month 6.
+4. **Execution.** The pitch is the vision headline. Use the three-horizon roadmap. For the
+   first milestone, get design partners into production, fix the top funnel defect, and
+   launch a migration offer. List the risks, each with a kill check tied to a milestone.
 5. **Why A wins.** Need · goal (new spend, not spend shifted from elsewhere) · strength ·
    timing.
 6. **Why not C first.** Name the runner-up and why it loses. For example, it shifts spend

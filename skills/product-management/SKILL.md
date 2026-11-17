@@ -32,7 +32,7 @@ research anything or spawn any agent.
 • Orchestrator: <model> · effort <level>   (now: <current, if known>)
 • Ultracode: <on / off / not needed> — <one-line why>
 • Advisor: <off / /advisor opus / /advisor fable> — <one-line why>
-• Plan: <N> agents · <deliverables list> · est. <time>
+• Plan: <N> agents · <deliverables list>
 ```
 
 Recommendations:
@@ -83,7 +83,7 @@ You cannot change your own model or effort. You can only recommend. Never call t
 Workflow tool unless the user opted in, either with the keyword `ultracode` or by asking
 explicitly for a workflow or multi-agent orchestration.
 
-## Phase 1: Frame (you, 1–3 minutes)
+## Phase 1: Frame (you)
 
 **Load memory first.** Invoke the **`product-ops`** skill with the job "Brief".
 - It finds the product knowledge base and returns:
@@ -126,7 +126,7 @@ Follow the GPM habits: start from the user, then business, then tech.
 | Cross-org alignment | §9 Alignment | Alignment one-pager · Stakeholder map |
 | "What should X build in 5 years / you're CEO / $1B" | §11 Company→Ecosystem→Execution | Brief · Opportunity scoring · Vision · Roadmap · First-6-months plan |
 | Prioritization / roadmap | [toolkit.md](references/toolkit.md) RICE / ICE / Kano / OST | Scored backlog · Roadmap |
-| Interview practice | Matching § + §10 On the call | Spoken-answer script (≤2 min) + critique |
+| Interview practice | Matching § + §10 On the call | Spoken-answer script (≤2 min when spoken) + critique |
 
 Load **only** the reference sections you need. They are written to be skimmed.
 
@@ -182,7 +182,7 @@ Read the research. Then:
 1. List **3 credible options**, never 1. Options must come before the pick.
 2. Score the options. Use need × goal × our strengths, or RICE for features.
 3. **Pick one.** State the trade-off aloud: "X over Y because…, giving up Z."
-4. Set a **reverse trigger**: "If <signal> isn't true by <date>, reshape the bet."
+4. Set a **reverse trigger**: "If <signal> isn't true by <milestone>, reshape the bet."
 
 On Full runs, the strategist drafts this phase and you challenge it. The decision is
 yours, and it appears at the top of the brief.
@@ -256,10 +256,18 @@ each subagent prompt.
 - **Short.** Keep sentences ≤20 words and bullets ≤2 lines. Each document fits about 2
   screens. Move the rest to an appendix.
 - **Concrete.** Use numbers instead of adjectives. Give at least 2 numbers per claim of
-  impact. Name the segment, the metric and the date.
+  impact. Name the segment, the metric and the milestone.
 - **Decisive.** Pick a side. Name the trade-off. Mark each uncertainty as `Assumption:`
   or `Open question:`, never as hedging prose.
-- **Owned.** Every action has an owner (a role) and a date or phase.
+- **Owned.** Every action has an owner (a role) and a milestone, gate or phase.
+- **No duration guesses.** Don't estimate how long work takes, in hours, days, weeks or
+  sprints, for humans or for agents. Neither you nor the subagents can know it. Plan with
+  three things instead:
+  - **order and dependencies:** first, next, after X;
+  - **gates:** exit criteria;
+  - **relative size:** S, M or L.
+- **Dates.** Use a calendar date only when the user gave it or it is a sourced fact.
+  Otherwise write `Target date: TBD (owner)`.
 - **No filler.** Cut intros, recaps, "it's important to note", and restated questions.
 - **Bold** at most 1–2 key phrases per section. Emoji only as section markers, if at all.
 - End each document with one **quotable line**: the thing to remember.
@@ -287,6 +295,8 @@ item fails.
    statistics: write "estimate" and show the arithmetic.
 8. **Consistent.** The same names, numbers and NSM appear across every document.
 9. **Concise.** The writing rules are met. The brief fits on one screen.
+10. **No made-up timelines.** No work is estimated in hours, days, weeks or sprints. Plans
+    use order, gates and S/M/L. Every date was given by the user or is sourced.
 
 ## Reference map
 
