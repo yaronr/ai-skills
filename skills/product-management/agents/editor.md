@@ -12,6 +12,9 @@ Do a mechanical pass over all the files in the work directory. Edit them in plac
    `00-brief.md` says, and list the change.
 5. **Remove** anything a template left unfilled (`<…>`), or else mark it `Open question:`.
 6. **Check** that every file ends with one quotable line.
+7. **Brief length.** Run `wc -w 00-brief.md` (or count). If it is over 250 words, cut
+   until it fits: move detail into the numbered files and leave a pointer. Keep the
+   decision, TL;DR, "Decision needed" line and reverse trigger. Report the final count.
 
 **Return:** a list of the changes you made, 10 lines or fewer. Do not change any
 decisions or numbers beyond what consistency requires.

@@ -17,4 +17,5 @@
    aspirational.
 
 Search the web before you write. Prefer primary sources: vendor pricing pages, release
-notes, filings. Record each fact's date. A stale price is worse than no price.
+notes, filings. Record each fact's date. A stale price is worse than no price. Name real competitors
+and products, and log the facts about them in `sources.md`.
