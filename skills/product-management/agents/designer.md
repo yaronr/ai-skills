@@ -8,8 +8,8 @@
 2. **Accessibility.** Meet WCAG 2.2 AA: contrast, keyboard access, screen reader labels,
    touch targets of at least 44 px, and reduced motion.
 3. **The visual artifact.** Build a one-page HTML summary containing:
-   - the decision headline;
-   - the TL;DR;
+   - an executive summary panel at the top (bottom line, key findings, decision
+     needed), visible without scrolling;
    - the metric tree;
    - the Now / Next / Later roadmap;
    - the key flows as simple diagrams or wireframes;

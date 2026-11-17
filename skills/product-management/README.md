@@ -2,8 +2,8 @@
 
 This skill turns a product question into the output of a whole product team. A Group
 Product Manager (GPM) runs the team as orchestrator, and specialist subagents do the
-research, analysis and writing. The documents it produces are short and lead with the
-answer.
+research, analysis and writing. Every document it produces opens with an executive
+summary of one page at most: the bottom line first, then the findings, then what to do.
 
 ## Use
 

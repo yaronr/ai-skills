@@ -196,9 +196,11 @@ documents drift apart.
 
 On Quick runs, skip the agents. Self-check against the quality bar instead.
 
-**Brief length gate (every tier).** Count the words: `wc -w 00-brief.md`. If it is over
-250, cut until it fits: move detail to the numbered files, never drop the decision, the
-"Decision needed" line or the reverse trigger. Recount. Don't package until it passes.
+**Executive summary gate (every tier).** Every document starts with an executive
+summary of one page at most (≤400 words); `00-brief.md` is one page in total. Count with
+`wc -w` (the awk one-liner in templates.md isolates the summary). Over the cap: move
+detail into the body or a numbered file and recount. Never drop the bottom line, the
+decision needed or the reverse trigger. Don't package until every file passes.
 
 ## Phase 6: Package
 
@@ -213,7 +215,7 @@ the final reply, offer one line: "Want a product knowledge base for this project
 The file set is the same in both locations, unless the user named another place:
 
 ```
-00-brief.md          ← the only file most people read (≤250 words)
+00-brief.md          ← executive summary of the package; most people read only this (≤1 page)
 01-research.md       02-strategy.md   03-prd.md   04-user-stories.md
 05-metrics.md        06-gtm.md        07-risks-and-decisions.md
 ```
@@ -237,15 +239,20 @@ or UI mockups. If that skill is not installed, say so once. Suggest
 `artifact-design` skill or the best design guidance available. Publish the page with the
 Artifact tool when it exists, and give the user the link.
 
-**Final chat reply** (≤10 lines): the decision in one line, the top 3 points, the files
-or link, the open questions, and the assumptions to verify.
+**Final chat reply** (≤10 lines), shaped like a mini executive summary: the bottom line,
+the top 3 findings, the decision needed, the files or link, and the assumptions to
+verify.
 
 ## Writing rules
 
 These rules apply to every document, every agent and every chat reply. Paste them into
 each subagent prompt.
 
-- **BLUF.** Line 1 is the answer or decision. Then **TL;DR** in ≤3 bullets.
+- **Executive summary first.** Every document and artifact opens with an executive
+  summary, max one page (≤400 words; aim for 150–250). Fixed order: **bottom line** →
+  **key findings** (3–5, each with a number) → **recommendation** and trade-off →
+  **decision needed** → **risks** → **next steps**. Details come after it. Readers have
+  ADHD: assume most stop at the summary. Block: [templates.md](references/templates.md).
 - **Scannable.** Use a heading every ≤8 lines. Prefer bullets to paragraphs. Use tables
   for any comparison of 3 or more items.
 - **Short.** Keep sentences ≤20 words and bullets ≤2 lines. Each document fits about 2
@@ -295,8 +302,9 @@ item fails.
 7. **Sourced.** Every external fact is in `sources.md` with a date. No invented
    statistics: write "estimate" and show the arithmetic.
 8. **Consistent.** The same names, numbers and NSM appear across every document.
-9. **Concise.** The writing rules are met. `00-brief.md` is 250 words or fewer, by
-   `wc -w`.
+9. **Summary first, concise.** Every document opens with an executive summary (bottom
+   line → findings → actions) of one page or less (≤400 words). `00-brief.md` is one page
+   in total. The writing rules are met.
 10. **No made-up timelines.** No work is estimated in hours, days, weeks or sprints. Plans
     use order, gates and S/M/L effort. No date is set by the team: each is user-given,
     sourced, or labelled as a recommendation for the owner to confirm.

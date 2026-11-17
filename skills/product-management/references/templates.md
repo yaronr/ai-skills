@@ -1,48 +1,64 @@
 # Templates
 
-Every template follows the writing rules: the answer in line 1, a TL;DR of 3 bullets or
-fewer, and short lines throughout.
+Every document starts with the **executive summary block** below: bottom line first,
+then findings, then what to do, in one page at most. The templates after it show only the
+body that follows the summary.
 
 Delete any section that does not apply. Don't pad a section to fill it.
 
-**Contents:** 00 Brief · PRD · User stories · Metrics spec · Strategy memo · Options matrix ·
+**Contents:** Executive summary block · 00 Brief · PRD · User stories · Metrics spec · Strategy memo · Options matrix ·
 Decision record · GTM plan · Research synthesis · Analysis memo / diagnosis · Vision &
 roadmap · PR/FAQ · Alignment one-pager · sources.md
 
 ---
 
-## 00 · Brief (always included; one screen)
+## Executive summary block (starts every document)
+
+Every document opens with this block, right under the title. Readers have ADHD: most
+read only this. **Max one page: hard cap 400 words, aim for 150–250.** Detail goes in the
+body below it.
 
 ```markdown
-# <Title>: <decision in ≤12 words>
+# <Title>: <bottom line in ≤12 words>
 
-**TL;DR**
-- <Recommendation + the trade-off>
-- <Why: the strongest evidence, with a number>
-- <What happens next: owner + milestone>
+## Executive summary
+**Bottom line:** <the answer or decision, 1–2 sentences>
 
+**Key findings**
+- <finding + number + (source) or Estimate>
+- <finding + number>
+- <finding + number>            (3–5 bullets max)
+
+**Recommendation:** <what we do> · **Trade-off:** <what we give up>
+**Decision needed:** <what> · from <role> · before <gate/milestone>
+**Risks:** <top 1–3, each → mitigation> · **Reverse trigger:** <metric, threshold, milestone>
+**Next steps:** 1) <action> (owner, gate) 2) … 3) …
+
+---
+<Body: the details, evidence and appendices, in the order of the findings.>
+```
+
+Rules:
+
+- Order is fixed: bottom line first, then findings, then what to do.
+- Every finding has a number. Every number is sourced or labelled `Estimate`.
+- Drop a line that doesn't apply (e.g. no decision needed). Don't pad.
+- A document under one page in total (an insight note, a decision record) needs only
+  the **Bottom line** line.
+- Check the length: `awk '/^## Executive summary/{f=1;next} /^(## |---)/{f=0} f' <file> | wc -w`.
+
+---
+
+## 00 · Brief = the package's executive summary (always included)
+
+`00-brief.md` is the executive summary for the whole package. It is the block above,
+covering all the documents, plus at most these two lines. The **whole file** is one page
+(≤400 words).
+
+```markdown
 | Goal | North star | Guardrail | First milestone |
 |---|---|---|---|
 | <growth/engagement/…> | <metric + target> | <metric + limit> | <what · gate> |
-
-**Decision needed:** <what> · from <role> · before <gate/milestone>
-
-## Why this, why now
-- <signal 1 (source)> · <signal 2> · <signal 3>
-
-## Options considered
-| Option | Need | Goal fit | Our edge | Verdict |
-|---|---|---|---|---|
-
-## Risks + reverse trigger
-- <Risk> → <mitigation>
-- **Reverse trigger:** if <metric> < <X> by <milestone>, we <reshape/stop>.
-
-## Open questions · Assumptions
-- Open: <…> (owner)
-- Assumption: <…> (how to verify)
-
-> <One quotable line.>
 
 📂 Details: 01-research · 02-strategy · 03-prd · 04-user-stories · 05-metrics · …
 ```
@@ -54,7 +70,10 @@ roadmap · PR/FAQ · Alignment one-pager · sources.md
 ```markdown
 # PRD: <feature>: <one-line outcome>
 
-**TL;DR:** <problem → solution → metric> · Status: Draft · Owner: PM · Updated: <date>
+Status: Draft · Owner: PM · Updated: <date>
+
+## Executive summary
+<block: bottom line = problem → solution → metric>
 
 ## Problem
 - **Who:** <segment> (<size>)
@@ -155,7 +174,8 @@ Hypothesis · primary metric · guardrails · MDE · sample size · runtime (sam
 ```markdown
 # Strategy: <question>: Recommend <X>
 
-**TL;DR:** <X over Y because …; giving up Z> · reverse trigger: <…>
+## Executive summary
+<block: bottom line = X over Y because …; giving up Z>
 
 ## Context (5 Cs)
 | Company | Customers | Competition | Capabilities | Constraints |
@@ -198,7 +218,8 @@ Hypothesis · primary metric · guardrails · MDE · sample size · runtime (sam
 
 ```markdown
 # GTM: <product>: <launch headline>
-**TL;DR:** ICP → positioning → price → channel → stages
+## Executive summary
+<block: bottom line = ICP → positioning → price → channel → stages>
 
 | ICP (first → next) | Pain today | What we fix | Alternative they use |
 |---|---|---|---|
