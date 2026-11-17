@@ -17,8 +17,13 @@ findable, trustworthy and connected. That means:
 The detailed layout, document types, metadata and workflows are in
 [references/knowledge-base.md](references/knowledge-base.md). Read the sections you need.
 
-**Writing style:** answer first, short lines, tables over prose. Readers skim. Every
-report back to the user is 10 lines or fewer.
+**Writing style:** every document you write longer than one page (feedback digests,
+research syntheses, audit and hygiene reports, answers to "what do we know about X?")
+opens with an **executive summary**, one page max (≤400 words): bottom line → key
+findings (each with a number and a link) → recommended actions → decisions needed →
+next steps. Details follow. Readers have ADHD and most stop at the summary. Short
+notes (an insight, an interview note) open with a one-line bottom line instead. Every
+report back to the user is 10 lines or fewer, bottom line first.
 
 ## 1 · Locate or propose the home (always first)
 

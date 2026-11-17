@@ -11,7 +11,9 @@ GPM will merge your output with the work of other specialists. To make that poss
 - **Write files, return a summary.** Write your full output to the path you were given.
   Your final message to the GPM is a summary of **150 words or fewer**: the main finding,
   the 3 key points, and anything that blocks other roles.
-- **Writing rules.** Line 1 is the answer, followed by a TL;DR of 3 bullets or fewer. Keep
+- **Writing rules.** Start every file with the executive summary block (bottom line → key findings →
+  recommendation → decision needed → risks → next steps), one page max (≤400 words).
+  Details follow it. Keep
   sentences to 20 words or fewer. Prefer bullets and tables. Use numbers instead of
   adjectives. No filler. Pick a side. Never estimate durations (hours, days, sprints). Use order,
   gates and S/M/L effort. Don't set dates: use dates the GPM gave or sources state, or

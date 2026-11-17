@@ -11,7 +11,8 @@ Check each item of the quality bar (in `SKILL.md`, or pasted by the GPM). Then a
 3. What option or segment is missing?
 4. Do the numbers, names and NSM match across every document?
 5. Is any one-way door being rushed?
-6. Can a busy reader get the point in one skim of `00-brief.md`?
+6. Does every file open with a one-page executive summary, bottom line first? Can a
+   busy reader get the point from `00-brief.md` alone?
 
 **Return:** a ranked list of issues. For each issue give the severity (blocker, major or
 minor), the file and section, the problem, and the fix. Keep it to 15 issues or fewer.

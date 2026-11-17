@@ -118,11 +118,13 @@ evidence: [../interviews/2026-10-02-c017-field-tech.md, ../feedback/2026-10-supp
 **So what:** <implication for product>
 ```
 
-**Interview note:** front matter (date, participant code, segment, interviewer), then
-the context, the key quotes (verbatim), the observations, the jobs and pains, and links
+**Interview note:** front matter (date, participant code, segment, interviewer), then a
+one-line bottom line (the most important thing learned), the context, the key quotes (verbatim), the observations, the jobs and pains, and links
 to the insights it informs. Use participant **codes**, not names.
 
-**Feedback digest** (one per source per period):
+**Feedback digest** (one per source per period). Open with an executive summary (≤1
+page): bottom line, the top 3 themes with counts and trend, and the recommended actions.
+Then the body:
 
 - The volume.
 - The top themes, as a table: theme · count · trend · example quotes · linked insight.

@@ -1,7 +1,7 @@
 ---
 type: llm
-focus: trace
+focus: output
 weight: 1
 ---
 
-A brief (00-brief.md) exists that leads with the decision and a TL;DR of at most 3 bullets, and is 250 words or fewer (count the words; over 250 fails).
+Every deliverable document opens with an '## Executive summary' section in this order: bottom line first, then key findings (each with a number), then recommendation / decision needed / risks / next steps. Each executive summary is 400 words or fewer (count them; over 400 fails), and 00-brief.md is 400 words or fewer in total.
