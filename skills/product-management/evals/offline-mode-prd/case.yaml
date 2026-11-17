@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: offline-mode-prd
+expected_outcome: |
+  A Standard-tier pack: setup card, brief, PRD with goals/non-goals and MVP, INVEST user stories with Gherkin criteria incl. error/offline states, metrics spec with NSM + guardrail, written to product-work/.
