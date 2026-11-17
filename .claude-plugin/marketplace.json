@@ -1,0 +1,17 @@
+{
+  "name": "ai-skills",
+  "owner": { "name": "Yaron Rosenbaum" },
+  "metadata": {
+    "description": "Skills, tools, mods and plugins for Claude.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "product-management",
+      "description": "GPM-led virtual product team: strategy, vision, PRDs, user stories, metrics, GTM, pricing.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/product-management"]
+    }
+  ]
+}
