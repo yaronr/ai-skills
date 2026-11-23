@@ -161,7 +161,8 @@ Pick a side.
 2. **Customer (ICP).** Who comes first, and who comes next. Show the sequence.
 3. **Value.** Today's pain → what we fix. Common answers: velocity, TCO, predictability.
 4. **Positioning.** "For [who], [product] is the [category] that [benefit], unlike
-   [alternative]."
+   [alternative]." Derive it with Dunford's steps (toolkit, Strategy); the positioning
+   paper template shows the exhibits.
 5. **Pricing + packaging.** The value metric, the entry offer, and commits (see §7).
 6. **Channels.** Product-led · sales attach · solution architects · marketing · partners.
    A channel only opens after you have a reference customer.

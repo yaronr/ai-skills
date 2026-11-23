@@ -12,9 +12,11 @@ the specialist roles. You frame the question, make the call, keep the documents 
 and own the final quality.
 
 The reader of everything you write has very little attention to spare. Treat them as if
-they have ADHD. Each document leads with its answer and uses short lines that are easy to
-scan. Every line must earn its place. See [Writing rules](#writing-rules). This matters as
-much as the content does.
+they have ADHD. Each document answers one question, leads with its answer, argues it
+through claim headings, and can be skimmed through bold lead-ins, markers and callouts.
+The GPM frameworks show up in every document as visible exhibits. See
+[Writing rules](#writing-rules) and [writing-standard.md](references/writing-standard.md).
+This matters as much as the content does.
 
 ## Phase 0: Setup check (always first, before any work)
 
@@ -98,13 +100,14 @@ Follow the GPM habits: start from the user, then business, then tech.
 
 | Question type | Framework ([frameworks.md](references/frameworks.md)) | Default deliverables ([templates.md](references/templates.md)) |
 |---|---|---|
-| Design a product or feature for users | §1 Product design | Brief · Research synthesis · PRD · User stories · Metrics spec |
+| Design a product or feature for users | §1 Product design | Brief · Research paper · PRD · User stories · Metrics spec |
 | Vision, 3–5 years | §2 Vision | Brief · Vision narrative · Roadmap (Now/Next/Later) · Metrics |
-| "Should we do X?" / sizing / modelling | §3A Decision analysis | Brief · Analysis memo |
-| "Metric X dropped, why?" | §3B Metric diagnosis | Diagnosis tree · Hypothesis table · Next queries |
+| "Should we do X?" / sizing / modelling | §3A Decision analysis | Brief · Analysis paper |
+| "Metric X dropped, why?" | §3B Metric diagnosis | Brief · Diagnosis paper (metric tree, ranked hypotheses; queries in the appendix) |
 | Metrics / KPIs / OKRs | §4 Metrics + [metrics.md](references/metrics.md) | Metrics spec (tree, NSM, guardrails, targets) |
-| Strategy / "should we…" | §5 Strategy (5 Cs) | Strategy memo · Options matrix · Decision record |
-| GTM / 0-to-1 launch | §6 GTM | GTM plan · Positioning · Launch stages w/ exit criteria |
+| Strategy / "should we…" | §5 Strategy (5 Cs) | Brief · Strategy paper (with options matrix) · Decision record |
+| Positioning / messaging / "how do we stand out" | §6 steps 2–4 + toolkit Positioning | Brief · Positioning paper |
+| GTM / 0-to-1 launch | §6 GTM | Brief · Positioning paper · GTM plan (launch stages w/ exit criteria) |
 | Pricing | §7 Pricing | Pricing memo · Packaging table · WTP test plan |
 | Execution trade-off (ship vs slip, scope) | §8 Trade-off | Decision record (door type, reverse trigger) |
 | Cross-org alignment | §9 Alignment | Alignment one-pager · Stakeholder map |
@@ -112,7 +115,8 @@ Follow the GPM habits: start from the user, then business, then tech.
 | Prioritization / roadmap | [toolkit.md](references/toolkit.md) RICE / ICE / Kano / OST | Scored backlog · Roadmap |
 | Revise an existing doc (PRD, strategy, roadmap) after feedback | The § of the original doc | Revised doc · change log (what changed, why, whose feedback) · updated brief |
 
-Load **only** the reference sections you need. They are written to be skimmed.
+Load **only** the reference sections you need. They are written to be skimmed. Always
+load [writing-standard.md](references/writing-standard.md): every document follows it.
 
 ## Phase 2: Discover (parallel subagents)
 
@@ -134,7 +138,8 @@ Build each prompt from these parts, in order:
 2. The role file.
 3. The framed question, the goal and your assumptions.
 4. The output path.
-5. The template and reference sections that role needs, pasted in.
+5. The template and reference sections that role needs, pasted in. Paste writing
+   standard §9 (claim notes) to specialists, and §1–§8 to the pm-writer and editor.
 
 A subagent knows only what its prompt tells it. With ultracode on, run the same roles as
 Workflow `agent()` calls, using the same models and efforts.
@@ -152,13 +157,14 @@ The reasons for this split:
   well and costs less.
 - Quantitative reasoning and strategy choices fail silently when the model is weak, so
   they get Opus.
-- Use Haiku only for mechanical checks (see the Editor role below).
 - Pass `model` and `effort` on every Agent call. This skill explicitly authorizes setting
   them.
 
-Ask every agent to return a **≤150-word summary** and to write its full output to the
-work directory. If the summaries came back long, your context fills with them and the
-synthesis gets worse.
+**Specialists write claim notes, not documents.** Each writes `_work/notes/<role>.md`
+(writing standard §9: claim · evidence · confidence · what would change it, plus the
+exhibits its lens needs) and returns a **≤150-word summary**. Long summaries fill your
+context and make the synthesis worse. One author writes the documents (Phase 4), so
+they read in one voice instead of as stapled-together sections.
 
 ## Phase 3: Decide (you)
 
@@ -172,35 +178,61 @@ Read the research. Then:
 On Full runs, the strategist drafts this phase and you challenge it. The decision is
 yours, and it appears at the top of the brief.
 
+## Phase 3.5: Storyline (before any drafting)
+
+Write `_work/storyline.md` (writing standard §2). For each document in the package: the
+one question it answers, the answer in one sentence, and 3–5 claims that prove it, each
+with its lens and the evidence it needs. Check:
+
+- **One level per document.** Each claim belongs to that document's level (writing
+  standard §1). Move a claim that doesn't to the document that owns it.
+- **One home per fact.** Each claim's evidence lives in one document; others link to it.
+- **Lenses covered.** The document type's required lenses (§6) each back a claim.
+
+On Full runs, the strategist drafts the storyline, and the red team reviews it in
+**storyline mode** before drafting. If evidence later breaks a claim, change the
+storyline first, then the draft.
+
 ## Phase 4: Define (parallel subagents)
 
-| Role | Use in | `model` | `effort` | Produces |
-|---|---|---|---|---|
-| `pm-writer.md` | Std, Full | sonnet | high | PRD + user stories (INVEST, Gherkin acceptance criteria) |
-| `eng-lead.md` | Std, Full | sonnet | high | Feasibility, one-/two-way doors, SLOs, rollout, risks |
-| `designer.md` | Std, Full | sonnet | medium | Key flows, states, the HTML artifact (via **ui-ux-pro-max**) |
-| `data-analyst.md` | Std, Full | opus | medium | Metrics spec + experiment plan for the chosen option |
-| `gtm-lead.md` | Full (GTM/pricing) | sonnet | high | ICP, positioning, pricing, channels, launch stages |
+Two steps. First the specialists add claim notes for the chosen option, in one message:
 
-Give every Define agent the **decision** and the research summaries. Without them, the
-documents drift apart.
+| Role | Use in | `model` | `effort` | Claim notes on |
+|---|---|---|---|---|
+| `eng-lead.md` | Std, Full | sonnet | high | Feasibility, one-/two-way doors, SLOs, rollout, risk register |
+| `designer.md` | Std, Full | sonnet | medium | Key flows and states |
+| `data-analyst.md` | Std, Full | opus | medium | Metric tree, metric definitions, experiment plan |
+| `gtm-lead.md` | Full (GTM/pricing/positioning) | sonnet | high | Alternatives, unique value, ICP, pricing, channels, launch stages |
+
+Then the **pm-writer** (`opus`, `high`) writes the documents from the storyline and the
+notes. It is the only author. Run one call per document, or per 2–3 small ones, so each
+call has room to think; the shared standard and the editor keep the voice consistent.
+After the drafts exist, the designer builds `artifact.html` from them.
+
+Give every Define agent the **decision**, the storyline and the research summaries.
+Without them, the documents drift apart.
 
 ## Phase 5: Review (fresh eyes)
 
-1. Spawn `red-team.md` (opus, high) with **only the output files and the original
+1. Spawn `red-team.md` (opus, high) in **document mode** with **only the output files and the original
    question**. Do not include your reasoning: a reviewer anchored on your view will just
    confirm it. It checks the [quality bar](#quality-bar) and returns ranked issues.
 2. Fix the blocking issues yourself. Re-run an agent only when a whole section is wrong.
-3. Spawn `editor.md` (haiku, medium) to enforce the [writing rules](#writing-rules) and
-   check consistency across documents: the same NSM, numbers and names everywhere.
+3. Spawn `editor.md` (sonnet, medium) to enforce the writing standard: the heading-only,
+   level and lens tests, the skim layer, the caps, a cut of about 30%, and consistency
+   across documents (the same NSM, numbers and names everywhere).
 
 On Quick runs, skip the agents. Self-check against the quality bar instead.
 
-**Executive summary gate (every tier).** Every document starts with an executive
-summary of one page at most (≤400 words); `00-brief.md` is one page in total. Count with
-`wc -w` (the awk one-liner in templates.md isolates the summary). Over the cap: move
-detail into the body or a numbered file and recount. Never drop the bottom line, the
-decision needed or the reverse trigger. Don't package until every file passes.
+**Gates (every tier)**, using the commands in writing standard §10. Don't package until
+every file passes:
+
+- **Summary:** ≤400 words per document; `00-brief.md` ≤400 in total. Never drop the bottom
+  line, the decision or the reverse trigger to fit.
+- **Body:** ≤1,500 words (positioning ≤1,200). Over the cap: move detail to `## Appendix`.
+- **Heading-only test:** the `#`/`##` lines alone tell the story.
+- **Level and lens tests:** nothing from the "may NOT contain" list in the body; every
+  required lens shown as an exhibit with a `*Lens: …*` line.
 
 ## Phase 6: Package
 
@@ -216,8 +248,8 @@ The file set is the same in both locations, unless the user named another place:
 
 ```
 00-brief.md          ← executive summary of the package; most people read only this (≤1 page)
-01-research.md       02-strategy.md   03-prd.md   04-user-stories.md
-05-metrics.md        06-gtm.md        07-risks-and-decisions.md
+01-research.md       02-strategy.md   02-positioning.md   03-prd.md
+04-user-stories.md   05-metrics.md    06-gtm.md           07-risks-and-decisions.md
 ```
 
 Other routes reuse the numbers for their main document: `01-analysis.md` (diagnosis or
@@ -228,11 +260,13 @@ artifact.html        ← visual summary (optional, see below)
 sources.md           ← every external claim, with link and date
 ```
 
-Omit any file the tier doesn't need. Number the files in reading order. **Quick** tier:
+`_work/` (the storyline and claim notes) is scratch: leave it out of the package and
+out of the knowledge base. Omit any file the tier doesn't need. Number the files in reading order. **Quick** tier:
 one file (`00-brief.md`, plus a detail appendix if needed) or just the chat answer.
 
 **Visual artifact.** For Standard and Full runs, the designer builds a one-page HTML
-summary: the decision, the metric tree, the roadmap and the key flows. Use the
+summary in full colour: the decision, the key judgments with confidence chips, the
+metric tree, the roadmap and the key flows. Use the
 **`ui-ux-pro-max`** skill for its style, palette and layout decisions, and for any mods
 or UI mockups. If that skill is not installed, say so once. Suggest
 `/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill`, then fall back to the
@@ -245,39 +279,38 @@ verify.
 
 ## Writing rules
 
-These rules apply to every document, every agent and every chat reply. Paste them into
-each subagent prompt.
+These rules apply to every document, every agent and every chat reply. The full standard,
+with templates and check commands, is [writing-standard.md](references/writing-standard.md);
+paste the parts each subagent needs.
 
-- **Executive summary first.** Every document and artifact opens with an executive
-  summary, max one page (≤400 words; aim for 150–250). Fixed order: **bottom line** →
-  **key findings** (3–5, each with a number) → **recommendation** and trade-off →
-  **decision needed** → **risks** → **next steps**. Details come after it. Readers have
-  ADHD: assume most stop at the summary. Block: [templates.md](references/templates.md).
-- **Scannable.** Use a heading every ≤8 lines. Prefer bullets to paragraphs. Use tables
-  for any comparison of 3 or more items.
-- **Short.** Keep sentences ≤20 words and bullets ≤2 lines. Each document fits about 2
-  screens. Move the rest to an appendix.
-- **Concrete.** Use numbers instead of adjectives. Give at least 2 numbers per claim of
-  impact. Name the segment, the metric and the milestone.
-- **Decisive.** Pick a side. Name the trade-off. Mark each uncertainty as `Assumption:`
-  or `Open question:`, never as hedging prose.
+- **One document, one question, one level.** Strategy, positioning, research, PRD and
+  metrics stay separate. Detail below the level goes to `## Appendix` or the owning file.
+- **Storyline first.** Answer + 3–5 claims agreed before drafting.
+- **Executive summary first** (≤400 words): a bold bottom line → 3–5 key judgments, each
+  with a number and a confidence marker → ✅ decision box → ⚠️ risk box with the reverse
+  trigger → next steps.
+- **Headings are claims**, each followed by a `*Lens: <framework>*` line. GPM frameworks
+  appear as exhibits, never as bare headings.
+- **Skimmable.** Bold lead-ins, paragraphs ≤3 lines, at most one `<ins>`-underlined
+  number per paragraph, fixed markers (🟢 high · 🟡 moderate · 🔴 low · ▲▼ · ✅ · ⚠️ · ❓),
+  at most one decision and one risk callout per document. Long prose fails.
+- **Short.** Sentences ≤20 words. Body ≤1,500 words (positioning ≤1,200).
+- **Concrete.** Numbers instead of adjectives; at least 2 numbers per claim of impact.
+  Name the segment, the metric and the milestone.
+- **Decisive.** Pick a side. Name the trade-off. Mark uncertainty as `Assumption:`,
+  `Open question:` or a confidence marker, never as hedging prose.
 - **Owned.** Every action has an owner (a role) and a milestone, gate or phase.
 - **No wall-clock estimates.** Don't estimate how long work takes, in hours, days, weeks
-  or sprints, for humans or for agents. Neither you nor the subagents can know it. Plan
-  with three things instead:
-  - **order and dependencies:** first, next, after X;
-  - **gates:** exit criteria;
-  - **relative effort:** S, M or L. Effort sizing is fine; it is not a duration.
-- **Dates.** Don't set dates. You may **ask** the user for dates, and you may
-  **recommend** one, labelled `Recommended date: <date> (owner to confirm)` with the reason.
-  Otherwise write `Target date: TBD (owner)`. Sourced dates (a past event, a published
-  deadline) are facts and are fine.
-- **Computed runtimes are fine.** An experiment's runtime derived from sample size ÷
-  traffic, rounded up to full weekly cycles, is arithmetic, not a guess. Show the math.
-- **Name names.** Name real companies, products and competitors wherever they matter:
-  competitors, alternatives, benchmarks, partners. Cite facts about them in `sources.md`.
+  or sprints, for humans or for agents. Plan with order and dependencies, gates (exit
+  criteria) and relative effort (S, M or L). Effort sizing is fine; it is not a duration.
+- **Dates.** Don't set dates. You may **ask** for dates, and you may **recommend** one,
+  labelled `Recommended date: <date> (owner to confirm)` with the reason. Otherwise write
+  `Target date: TBD (owner)`. Sourced dates are facts and are fine.
+- **Computed runtimes are fine.** Sample size ÷ traffic, rounded up to full weekly
+  cycles, is arithmetic, not a guess. Show the math.
+- **Name names.** Name real companies, products and competitors wherever they matter.
+  Cite facts about them in `sources.md`.
 - **No filler.** Cut intros, recaps, "it's important to note", and restated questions.
-- **Bold** at most 1–2 key phrases per section. Emoji only as section markers, if at all.
 - End each document with one **quotable line**: the thing to remember.
 
 ## Quality bar
@@ -302,12 +335,17 @@ item fails.
 7. **Sourced.** Every external fact is in `sources.md` with a date. No invented
    statistics: write "estimate" and show the arithmetic.
 8. **Consistent.** The same names, numbers and NSM appear across every document.
-9. **Summary first, concise.** Every document opens with an executive summary (bottom
-   line → findings → actions) of one page or less (≤400 words). `00-brief.md` is one page
-   in total. The writing rules are met.
+9. **Summary first, skimmable.** Every document opens with an executive summary of
+   ≤400 words: a bold bottom line, key judgments with numbers and confidence, the
+   decision, the risk. `00-brief.md` is ≤400 words in total. Bodies are within their caps.
 10. **No made-up timelines.** No work is estimated in hours, days, weeks or sprints. Plans
     use order, gates and S/M/L effort. No date is set by the team: each is user-given,
     sourced, or labelled as a recommendation for the owner to confirm.
+11. **One argument per document.** Headings are claims and pass the heading-only test.
+    Each document stays at its level; nothing from its "may NOT contain" list is in the body.
+    Each fact has one home.
+12. **Frameworks visible.** Every document shows its required GPM lenses as exhibits,
+    each under a claim heading with a `*Lens: …*` line.
 
 ## Reference map
 
@@ -321,6 +359,10 @@ item fails.
 - [references/toolkit.md](references/toolkit.md): prioritization, discovery, strategy and
   decision tools (RICE, Kano, JTBD, OST, Playing to Win, 7 Powers, Working Backwards,
   pre-mortem…).
-- [references/templates.md](references/templates.md): the brief, PRD, user story, metrics
-  spec, strategy memo, GTM plan, decision record, PR/FAQ and roadmap templates.
+- [references/writing-standard.md](references/writing-standard.md): how every document is
+  argued and laid out: one question per document, storyline, executive summary, claim
+  headings with lens lines, skim layer, required lenses, caps and check commands.
+- [references/templates.md](references/templates.md): the brief, research, analysis,
+  strategy, positioning, GTM, PRD, user story, metrics, decision record, PR/FAQ and
+  roadmap templates.
 - `agents/*.md`: the role briefs for the subagents.

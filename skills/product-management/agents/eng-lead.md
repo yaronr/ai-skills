@@ -16,4 +16,5 @@
    security and data integrity are never traded for scope.
 7. **Cost per unit** at 10× and 100× scale, as an `Estimate`.
 
-Do not bluff about internals you don't know. Write `Open question: needs <team>` instead.
+Return claim notes plus the risk register as an exhibit. Do not bluff about internals
+you don't know. Write `Open question: needs <team>` instead.

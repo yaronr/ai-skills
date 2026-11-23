@@ -17,6 +17,7 @@ import sys
 
 TYPES = {
     "vision": "strategy", "strategy": "strategy", "okr": "strategy", "roadmap": "strategy",
+    "positioning": "strategy",
     "persona": "customers/personas", "segment": "customers", "account": "customers/accounts",
     "research-plan": "discovery/research", "research-synthesis": "discovery/research",
     "interview": "discovery/interviews", "feedback-digest": "discovery/feedback",
@@ -33,9 +34,9 @@ TYPES = {
 }
 STATUSES = {"draft", "review", "approved", "shipped", "superseded", "archived",
             "living", "planned", "running", "concluded", "frozen"}
-EVERGREEN = {"vision", "strategy", "okr", "roadmap", "persona", "segment", "insight",
+EVERGREEN = {"vision", "strategy", "positioning", "okr", "roadmap", "persona", "segment", "insight",
              "competitor", "market", "metrics-spec", "metric-definition", "opportunity-tree"}
-SKIP_DIRS = {".git", "node_modules", "archive", ".venv", "__pycache__"}
+SKIP_DIRS = {".git", "node_modules", "archive", ".venv", "__pycache__", "_work"}
 SKIP_FILES = {"INDEX.md", "CHANGELOG.md", "README.md", "glossary.md"}
 CORE_DIRS = ["strategy", "customers/personas", "discovery/research", "discovery/interviews",
              "discovery/feedback", "discovery/insights", "market/competitors", "analysis",
@@ -56,6 +57,7 @@ HEURISTICS = [
     (r"\bmetrics?\b|\bkpis?\b|north star|\bdashboard\b", "metrics-spec"),
     (r"\broadmap\b", "roadmap"),
     (r"\bvision\b", "vision"),
+    (r"\bpositioning\b|\bmessaging\b", "positioning"),
     (r"\bstrategy\b|\bokrs?\b", "strategy"),
     (r"go[-_ ]to[-_ ]market|\bgtm\b|\blaunch plan\b", "gtm"),
     (r"release notes|\bchangelog\b", "release-notes"),

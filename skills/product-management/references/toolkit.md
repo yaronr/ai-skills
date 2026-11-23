@@ -60,6 +60,11 @@ Experimentation · Delivery
   and how each side gets value.
 - **Build / buy / partner.** Compare time to market, control, cost, and whether the
   capability is core.
+- **Positioning (Dunford).** Five steps, in order: competitive alternatives (including
+  doing nothing) → unique attributes → the value they create, with proof → the best-fit
+  customer who cares most → the market category that makes the value obvious. Pick the
+  category style: head-on, a sub-category, or a new category (rare and costly). Then write
+  a messaging hierarchy: a headline and 3 pillars, each with a proof point.
 - **Crossing the chasm.** Win one beachhead segment completely before expanding.
   References from that segment open the next one.
 

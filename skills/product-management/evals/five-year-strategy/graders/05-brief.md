@@ -4,4 +4,4 @@ focus: output
 weight: 1
 ---
 
-00-brief.md is an executive summary of the whole package, 400 words or fewer in total: bottom line (the recommendation) first, then key findings with numbers, the recommendation and trade-off, a 'Decision needed' line (what, from whom, before which gate), risks and next steps. Every other document also opens with an executive summary. External facts, including facts about named real companies, are sourced or labelled as estimates.
+Each document opens with an '## Executive summary' of 400 words or fewer (count them; over 400 fails): a bold one-sentence bottom line first; then 3–5 key judgments, each with a number and a confidence marker that shows the word (high / moderate / low), not just a colour; then a decision line or callout saying what is needed, from whom and before which gate; then the main risk with a reverse trigger. A section that doesn't apply may be dropped. 00-brief.md is 400 words or fewer in total. External facts, including facts about named real companies, are sourced or labelled as estimates.

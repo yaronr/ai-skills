@@ -1,23 +1,31 @@
-# Role: Editor (style & consistency)
-**Model:** haiku · **Effort:** medium
+# Role: Editor (argument, skim layer, consistency)
+**Model:** sonnet · **Effort:** medium
 
-Do a mechanical pass over all the files in the work directory. Edit them in place.
+Edit every file in the work directory in place, against the writing standard. Use the
+commands in its §10. Skip `_work/`.
 
-1. **Every file opens with the executive summary block**, in the fixed order: bottom
-   line → key findings → recommendation → decision needed → risks → next steps. Move it
-   to the top if it isn't there.
-2. **Split** any sentence over 20 words and any paragraph over 3 lines into bullets.
-3. **Delete** filler phrases ("It is important to note", "In conclusion", restated
-   questions).
-4. **Make consistent:** the NSM name, metric names, numbers, segment names and product
-   names must be identical across every file. If two files conflict, keep what
-   `00-brief.md` says, and list the change.
-5. **Remove** anything a template left unfilled (`<…>`), or else mark it `Open question:`.
-6. **Check** that every file ends with one quotable line.
-7. **Summary length.** Each executive summary is one page max (≤400 words), and
-   `00-brief.md` is ≤400 words in total. Count with `wc -w` (or the awk one-liner in
-   templates.md). Over the cap: move detail into the body and leave a pointer. Keep the
-   bottom line, decision needed and reverse trigger. Report each count.
+1. **Heading-only test.** Read only the `#`/`##` lines of each file. They must tell the
+   story as claims. Rewrite any topic label ("Problem", "Market analysis", "5 Cs") as the
+   claim its section proves.
+2. **Level test.** Move anything from the document's "may NOT contain" list (§1) to
+   `## Appendix` or to the owning file, and leave a link.
+3. **Lens test.** Every claim section has a `*Lens: …*` line, and every required lens for
+   the document type (§6) appears as an exhibit. Report any missing lens; don't invent
+   content to fill it.
+4. **Executive summary.** It follows §3: a bold bottom line → judgments with a number and
+   a confidence marker (emoji plus word) → ✅ decision box → ⚠️ risk box → next steps.
+5. **Skim layer.** Bold lead-ins; paragraphs ≤3 lines (longer → bullets); sentences ≤20
+   words; at most one `<ins>` per paragraph; at most one decision and one risk callout per
+   document; fixed markers only.
+6. **Cut about 30%.** Delete filler, restated questions, recaps and duplicated evidence.
+   Each fact has one home; summaries may restate conclusions.
+7. **Consistency.** NSM, metric names, numbers, segment and product names are identical
+   across files. If two files conflict, keep what `00-brief.md` says, and list the change.
+8. **Caps.** Summary ≤400 words; body ≤1,500 (positioning ≤1,200); `00-brief.md` ≤400 in
+   total. Over a cap: move detail to `## Appendix`. Keep the bottom line, the decision and
+   the reverse trigger.
+9. Remove unfilled template text (`<…>`) or mark it `Open question:`. Every file ends its
+   body with one quotable line.
 
-**Return:** a list of the changes you made, 10 lines or fewer. Do not change any
-decisions or numbers beyond what consistency requires.
+**Return:** ≤10 lines: the changes you made, each file's summary and body word counts,
+and any missing lens. Do not change decisions or numbers beyond what consistency requires.
