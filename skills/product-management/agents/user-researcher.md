@@ -18,4 +18,5 @@ hurts.
    or a survey item. Interview questions must ask about past behavior, never about future
    intent.
 
-**Output:** use the research synthesis template, plus at most 3 personas of 4 lines each.
+**Output:** claim notes (see `_common.md`), plus the segment × JTBD table as an exhibit
+and at most 3 personas of 4 lines each. The pm-writer turns them into the research paper.

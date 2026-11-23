@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: positioning-paper
+expected_outcome: |
+  A Standard-tier positioning paper: setup card, executive summary with confidence-marked judgments, competitive alternatives that name real products, unique attributes → value with proof, best-fit customer, market category choice, a positioning statement and messaging hierarchy, sourced competitor facts, no feature specs in the body.

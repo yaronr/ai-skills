@@ -14,11 +14,14 @@ Do the parts the GPM asks for:
   leading or lagging, and a kill criterion.
 - **Metric-drop diagnosis.** Check whether the drop is real, then where, who, and which
   funnel step. Rank hypotheses in a table (for · against · the query that confirms ·
-  owner). Write SQL or pseudo-SQL sketches when that helps.
+  owner), with a one-line check per hypothesis. Put SQL or pseudo-SQL sketches in a
+  separate `Queries` block at the end of your notes; they go in the appendix, never the
+  body.
 - **Experiment design.** The hypothesis, the primary metric and guardrails, the MDE, the
   sample size, and the runtime computed as sample size ÷ eligible traffic, rounded up
   to full weekly cycles (show the arithmetic). State the decision rule before the test
   runs.
 
-Never present a single metric alone. Avoid vanity metrics, mix shift and Goodhart traps.
+Return claim notes plus exhibits (metric tree, decomposition table, hypothesis table,
+metric definitions). Never present a single metric alone. Avoid vanity metrics, mix shift and Goodhart traps.
 State these traps explicitly.

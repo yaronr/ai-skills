@@ -51,7 +51,7 @@ product/
 ├── CHANGELOG.md            ← one line per filing: date · what · where
 ├── glossary.md             ← canonical names for metrics, segments, features
 │
-├── strategy/               ← EVERGREEN: vision, strategy memos, OKRs, roadmap.md (living)
+├── strategy/               ← EVERGREEN: vision, strategy papers, positioning, OKRs, roadmap.md (living)
 ├── customers/
 │   ├── personas/           ← ≤5 personas, evidence-linked
 │   ├── segments.md         ← segment table (size, JTBD, pain, priority)
@@ -89,14 +89,14 @@ an empty folder until there is something to put in it, apart from the core: `str
 
 | Type (`type:`) | Folder | Template (templates.md) | Lifecycle |
 |---|---|---|---|
-| `vision`, `strategy`, `okr`, `roadmap` | strategy/ | Vision & roadmap · Strategy memo | Living. Review quarterly. |
-| `persona`, `segment` | customers/ | Research synthesis | Living. Review every 6 months. |
-| `research-plan`, `research-synthesis` | discovery/research/<study>/ | Research synthesis | Frozen after synthesis |
+| `vision`, `strategy`, `positioning`, `okr`, `roadmap` | strategy/ | Vision & roadmap · Strategy paper · Positioning paper | Living. Review quarterly. |
+| `persona`, `segment` | customers/ | Research paper | Living. Review every 6 months. |
+| `research-plan`, `research-synthesis` | discovery/research/<study>/ | Research paper | Frozen after synthesis |
 | `interview` | discovery/interviews/ | (see below) | Frozen |
 | `feedback-digest` | discovery/feedback/ | (see below) | Monthly or per source |
 | `insight` | discovery/insights/ | (see below) | Living. Confidence changes as evidence arrives. |
 | `competitor`, `market` | market/ | Market analyst output | Living. Date every fact. |
-| `analysis`, `diagnosis`, `sizing` | analysis/ | Analysis memo | Frozen |
+| `analysis`, `diagnosis`, `sizing` | analysis/ | Analysis / diagnosis paper | Frozen |
 | `experiment` | experiments/ | Experiment plan (metrics spec) | Planned → running → concluded |
 | `metrics-spec`, `metric-definition` | metrics/ | Metrics spec | Living. This is the single source of truth. |
 | `decision` | decisions/ | Decision record | Append-only. Supersede it, never edit it. |
@@ -175,7 +175,8 @@ sources: [sources.md#3]   # or links
 **File the team's output** (product-management Phase 6):
 
 1. Put deliverables in `initiatives/<yyyy>-q<n>-<slug>/`. This replaces
-   `product-work/` whenever a KB exists.
+   `product-work/` whenever a KB exists. Don't file `_work/` (the storyline and claim
+   notes): it is scratch.
 2. Extract each new **insight** into `discovery/insights/`, and each new **decision**
    into `decisions/NNNN-…`.
 3. Put competitor facts in `market/competitors/`, and metric definitions in `metrics/`.
