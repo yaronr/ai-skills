@@ -41,7 +41,9 @@ Recommendations:
 
 - **Quick**: any current model is fine. Use effort `medium`. Ultracode is not needed.
 - **Standard**: use Opus with effort `high`. Ultracode is optional.
-- **Full**: use Opus (or the strongest model the user has) with effort `xhigh`. Recommend
+- **Full**: use Opus (or the strongest model the user has) with effort `high`. The
+  orchestrator frames, routes and merges; the deep reasoning runs in subagents, which set
+  their own effort per role (the strategist runs at `xhigh`). Recommend
   **ultracode** for Full. It lets the Workflow tool run the two research waves and the
   verification pass as a deterministic pipeline: more parallel agents, and findings that
   get checked. Without it, use the Agent tool and expect a slower, more serial run.
