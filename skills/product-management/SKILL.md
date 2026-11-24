@@ -226,7 +226,10 @@ Without them, the documents drift apart.
 
 On Quick runs, skip the agents. Self-check against the quality bar instead.
 
-**Gates (every tier)**, using the commands in writing standard §10. Don't package until
+**Gates (every tier).** Run `python3 scripts/check_package.py <work dir>` (add
+`--previous <git ref>` when revising an existing package; review every removed item it
+lists against the "never cut" rule). It runs every mechanical check in writing standard
+§10. Don't package until
 every file passes:
 
 - **Summary:** ≤400 words per document; `00-brief.md` ≤400 in total. Never drop the bottom
@@ -381,4 +384,7 @@ item fails.
 - [references/templates.md](references/templates.md): the brief, research, analysis,
   strategy, positioning, GTM, PRD, user story, metrics, decision record, PR/FAQ and
   roadmap templates.
+- [scripts/check_package.py](scripts/check_package.py): runs every mechanical check on a
+  package (word caps, internal codes, headings, lens lines, callouts, reverse trigger,
+  `sources.md`) and, with `--previous`, lists what a revision removed.
 - `agents/*.md`: the role briefs for the subagents.
