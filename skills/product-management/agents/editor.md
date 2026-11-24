@@ -32,8 +32,15 @@ commands in its §10. Skip `_work/`.
    box: one decision per line, ≤25 words, ≤3 lines. Risk box ≤60 words; reverse trigger
    ≤30 words, written in full once in the package and linked elsewhere.
 11. **`sources.md`** is the source table only. Remove any summary or sections from it.
+12. **Protected content.** Never cut what §7 lists under "never cut": the bottom line,
+   the decisions, the reverse trigger, the evidence behind the pick and the segment, the
+   options matrix and sensitivity, the verdict on earlier proposals, and the required
+   lenses. Run the reverse-trigger check (§10): one full line, ≤30 words. If a cap can't
+   be met otherwise, keep the content and report the overrun. Don't change a metric,
+   guardrail, score or decision while cutting; list any change of substance.
 9. Remove unfilled template text (`<…>`) or mark it `Open question:`. Every file ends its
    body with one quotable line.
 
 **Return:** ≤10 lines: the changes you made, each file's summary and body word counts,
-the appendix count, the package count, and any missing lens. Do not change decisions or numbers beyond what consistency requires.
+the appendix count, the package count, the reverse-trigger word count, any missing lens,
+and every change of substance. Do not change decisions or numbers beyond what consistency requires.

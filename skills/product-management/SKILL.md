@@ -237,6 +237,11 @@ every file passes:
 - **Plain words:** no internal codes (hypothesis, gate, decision, persona or option
   labels) in a summary, heading or callout; each is spelled out.
 - **Small callouts:** one decision per line, ≤25 words, ≤3 lines; risk box ≤60 words.
+- **Reverse trigger:** one full `**Reverse trigger:**` line in the package, ≤30 words.
+- **Protected content:** a cut never removes the bottom line, the decisions, the reverse
+  trigger, the evidence behind the pick and segment, the options matrix and sensitivity,
+  the verdict on earlier proposals, or a required lens (writing standard §7). Changes of
+  substance are made on purpose and listed, never as a side effect of cutting.
 - **Heading-only test:** the `#`/`##` lines alone tell the story.
 - **Level and lens tests:** nothing from the "may NOT contain" list in the body; every
   required lens shown as an exhibit with a `*Lens: …*` line.
