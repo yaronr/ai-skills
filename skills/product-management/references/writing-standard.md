@@ -149,7 +149,22 @@ The body is everything between the end of the executive summary and `## Appendix
   and the package stay under their caps. Otherwise delete it, or keep one line and a link
   to the source.
 - **Say each thing once.** The reverse trigger, the decisions and each number are written
-  in full in one place; elsewhere, restate in a few words and link.
+  in full in one place; elsewhere, restate in a few words and link. Write the full reverse
+  trigger on one line that starts `**Reverse trigger:**`, ≤30 words, so the check finds it.
+
+**Never cut (protected content).** Cutting to a cap removes repetition, filler and
+detail, never the argument. These survive every cut, at least as one line in the body:
+
+- the bottom line, the decisions and the reverse trigger;
+- the evidence behind the chosen option and segment (the numbers that make the pick);
+- the options matrix and its sensitivity;
+- the verdict on earlier proposals or documents the question builds on: what to keep,
+  what to change, and why;
+- every required lens (§6).
+
+If a cap can't be met without cutting protected content, keep the content and report the
+overrun. A change of substance (a metric, a guardrail, a score, a decision) is never a
+side effect of a cut: make it only on purpose, and list it in the report.
 
 ## 8 · Package
 
@@ -188,6 +203,8 @@ grep -c '^\*Lens: ' FILE
 awk '/^## Appendix/{s=1;next} s' FILE | wc -w
 # Package words (≤6,000; front matter counts, so keep it short)
 ls DIR/*.md | grep -v -e sources.md -e user-stories | xargs cat | wc -w
+# Reverse trigger words (≤30; one full line per package)
+grep -h '\*\*Reverse trigger:\*\*' DIR/*.md | sed 's/.*Reverse trigger:\*\*//' | wc -w
 # Code candidates in the summary (each must be spelled out; GPU or product names are fine)
 awk '/^## Executive summary/{s=1;next} s&&/^(## |---$)/{exit} s' FILE | grep -v '^\s*$' | sed 's/\[S[0-9]*\]//g' | grep -oE '\b[A-Z]{1,3}[0-9]{1,2}\b' | sort -u
 ```
@@ -195,5 +212,7 @@ awk '/^## Executive summary/{s=1;next} s&&/^(## |---$)/{exit} s' FILE | grep -v 
 - **Heading-only test:** the `#`/`##` lines alone make the argument.
 - **Level test:** nothing from the document's "may NOT contain" list is in the body.
 - **Lens test:** every required lens for the document type appears as an exhibit.
+- **Protected-content test:** compare with the previous version. Everything in the
+  "never cut" list (§7) is still there, and every change of substance is listed.
 - **Plain-words test:** the code-candidate command prints nothing that is an internal
   label.
