@@ -21,11 +21,19 @@ commands in its §10. Skip `_work/`.
    Each fact has one home; summaries may restate conclusions.
 7. **Consistency.** NSM, metric names, numbers, segment and product names are identical
    across files. If two files conflict, keep what `00-brief.md` says, and list the change.
-8. **Caps.** Summary ≤400 words; body ≤1,500 (positioning ≤1,200); `00-brief.md` ≤400 in
-   total. Over a cap: move detail to `## Appendix`. Keep the bottom line, the decision and
-   the reverse trigger.
+8. **Caps.** Summary ≤400 words; body ≤1,500 (positioning ≤1,200); appendix ≤800;
+   `00-brief.md` ≤400 in total; package ≤6,000 (all files except `sources.md` and user
+   stories). Caps are ceilings: aim for two thirds. Over a cap: **cut**. Move text to the
+   appendix only while the appendix and package stay under their caps. Delete appendix
+   sections the body does not cite. Keep the bottom line, the decision and the reverse
+   trigger.
+10. **Plain words and small callouts.** Run the code-candidate check (§10). Spell out
+   every internal code in summaries, headings and callouts. Headings ≤15 words. Decision
+   box: one decision per line, ≤25 words, ≤3 lines. Risk box ≤60 words; reverse trigger
+   ≤30 words, written in full once in the package and linked elsewhere.
+11. **`sources.md`** is the source table only. Remove any summary or sections from it.
 9. Remove unfilled template text (`<…>`) or mark it `Open question:`. Every file ends its
    body with one quotable line.
 
 **Return:** ≤10 lines: the changes you made, each file's summary and body word counts,
-and any missing lens. Do not change decisions or numbers beyond what consistency requires.
+the appendix count, the package count, and any missing lens. Do not change decisions or numbers beyond what consistency requires.

@@ -224,7 +224,7 @@ Customer quotes · competitor messaging captured (dated) · rejected framings an
 |---|---|---|---|
 
 ## <claim: the positioning, in one line>
-*Lens: positioning statement (full detail: 02-positioning)*
+*Lens: positioning statement (full detail: 02b-positioning)*
 
 ## <claim: how we charge>
 *Lens: value metric · packaging (frameworks §7)*
@@ -384,6 +384,8 @@ Short enough to need only a bold bottom line, no full summary block.
 ---
 
 ## sources.md
+
+The table only: no executive summary, no claim sections, no appendix.
 
 ```markdown
 | # | Claim | Source (link) | Date accessed | Confidence |

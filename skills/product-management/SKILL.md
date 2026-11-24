@@ -231,7 +231,12 @@ every file passes:
 
 - **Summary:** ≤400 words per document; `00-brief.md` ≤400 in total. Never drop the bottom
   line, the decision or the reverse trigger to fit.
-- **Body:** ≤1,500 words (positioning ≤1,200). Over the cap: move detail to `## Appendix`.
+- **Body:** ≤1,500 words (positioning ≤1,200). **Appendix:** ≤800 words. **Package:**
+  ≤6,000 words (all files except `sources.md` and user stories). Caps are ceilings; aim
+  for two thirds. Over a cap: cut, don't move.
+- **Plain words:** no internal codes (hypothesis, gate, decision, persona or option
+  labels) in a summary, heading or callout; each is spelled out.
+- **Small callouts:** one decision per line, ≤25 words, ≤3 lines; risk box ≤60 words.
 - **Heading-only test:** the `#`/`##` lines alone tell the story.
 - **Level and lens tests:** nothing from the "may NOT contain" list in the body; every
   required lens shown as an exhibit with a `*Lens: …*` line.
@@ -250,7 +255,7 @@ The file set is the same in both locations, unless the user named another place:
 
 ```
 00-brief.md          ← executive summary of the package; most people read only this (≤1 page)
-01-research.md       02-strategy.md   02-positioning.md   03-prd.md
+01-research.md       02-strategy.md   02b-positioning.md  03-prd.md
 04-user-stories.md   05-metrics.md    06-gtm.md           07-risks-and-decisions.md
 ```
 
@@ -259,7 +264,7 @@ decision analysis), `02-vision-roadmap.md`, `02-pricing.md`, `02-alignment.md`.
 
 ```
 artifact.html        ← visual summary (optional, see below)
-sources.md           ← every external claim, with link and date
+sources.md           ← the source table only (no summary, no sections)
 ```
 
 `_work/` (the storyline and claim notes) is scratch: leave it out of the package and
@@ -296,7 +301,11 @@ paste the parts each subagent needs.
 - **Skimmable.** Bold lead-ins, paragraphs ≤3 lines, at most one `<ins>`-underlined
   number per paragraph, fixed markers (🟢 high · 🟡 moderate · 🔴 low · ▲▼ · ✅ · ⚠️ · ❓),
   at most one decision and one risk callout per document. Long prose fails.
-- **Short.** Sentences ≤20 words. Body ≤1,500 words (positioning ≤1,200).
+- **Short.** Sentences ≤20 words. Headings ≤15 words. Body ≤1,500 words (positioning
+  ≤1,200), appendix ≤800, package ≤6,000. Cut to fit; never move text to the appendix to
+  pass a cap. Say each thing once and link.
+- **Plain words.** Summaries, headings and callouts spell out every internal code. The
+  reader of the summary alone understands every word.
 - **Concrete.** Numbers instead of adjectives; at least 2 numbers per claim of impact.
   Name the segment, the metric and the milestone.
 - **Decisive.** Pick a side. Name the trade-off. Mark uncertainty as `Assumption:`,
