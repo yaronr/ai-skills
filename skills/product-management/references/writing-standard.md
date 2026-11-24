@@ -171,7 +171,9 @@ side effect of a cut: make it only on purpose, and list it in the report.
 - **One fact, one home.** Evidence, tables, option grids and risk lists live in exactly
   one file; other files link to it. Executive summaries may restate conclusions.
 - `00-brief.md` is the package's executive summary, plus the goal / NSM table and the file
-  list.
+  list. One of its key judgments says **why the pick won**: the evidence behind the chosen
+  option or segment, with its number (e.g. how large or how hurt that segment is, and why
+  the runner-up lost).
 - `sources.md` is the source table only: no executive summary, no claim sections, no
   appendix. It is exempt from the summary, heading and lens checks.
 
@@ -189,6 +191,11 @@ Tables a lens needs (metric tree, competitor table, risk register) go in the not
 exhibits. The author places them.
 
 ## 10 · Checks (editor and graders)
+
+Run them all at once with `python3 scripts/check_package.py DIR [--previous GIT_REF]`. It
+prints PASS / FAIL per check and exits 1 on any failure. With `--previous`, it lists the
+table rows, links and bold lead-ins that a revision removed, for review against §7. The
+commands below are the same checks, one at a time.
 
 ```bash
 # Summary words (≤400)

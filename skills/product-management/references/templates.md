@@ -23,6 +23,10 @@ Metrics spec · Decision record · PR/FAQ · Alignment one-pager · sources.md
 `00-brief.md` is the executive summary block for the whole package (writing standard §3),
 plus these two parts. The **whole file** is ≤400 words.
 
+One key judgment must say **why the pick won**: the evidence behind the chosen option or
+segment, with a number, and why the runner-up lost. A reader of the brief alone must see
+the reason, not only the choice.
+
 ```markdown
 | Goal | North star | Guardrail | First milestone |
 |---|---|---|---|

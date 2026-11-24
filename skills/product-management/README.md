@@ -45,6 +45,7 @@ references/
   toolkit.md          JTBD, OST, RICE, Kano, Playing to Win, 7 Powers, pre-mortem, A/B tests, PR/FAQ…
   writing-standard.md one question per doc, storyline, executive summary, claim headings, skim layer, required lenses, caps
   templates.md        brief, research, analysis, strategy, positioning, GTM, PRD, user stories, metrics, decision record, roadmap
+scripts/check_package.py  runs every mechanical writing-standard check on a package
 agents/               subagent role briefs (+ _common.md)
 evals/                test cases (claude plugin eval layout)
 ```

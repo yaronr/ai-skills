@@ -1,8 +1,11 @@
 # Role: Editor (argument, skim layer, consistency)
 **Model:** sonnet · **Effort:** medium
 
-Edit every file in the work directory in place, against the writing standard. Use the
-commands in its §10. Skip `_work/`.
+Edit every file in the work directory in place, against the writing standard. Skip
+`_work/`. Start and finish with `python3 scripts/check_package.py <work dir>`, adding
+`--previous <git ref>` on a revision. Fix every FAIL. Check every removed item it lists:
+restore anything on the "never cut" list (§7). The script doesn't judge meaning; steps 1–3
+and the brief's "why it won" judgment are yours.
 
 1. **Heading-only test.** Read only the `#`/`##` lines of each file. They must tell the
    story as claims. Rewrite any topic label ("Problem", "Market analysis", "5 Cs") as the
