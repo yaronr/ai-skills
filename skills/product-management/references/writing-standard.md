@@ -73,18 +73,28 @@ Answer: <one sentence>
 - Order is fixed: bottom line → key judgments → decision → risk → next.
 - Every judgment has a number and a confidence marker. Numbers are sourced or `Estimate`.
 - Drop the decision or risk box when it doesn't apply. Never pad.
+- **Plain words only.** The summary and every heading spell out each internal label
+  (hypothesis, gate, decision, persona or option codes such as "H3", "G1", "D2", "P4"). A
+  reader who reads only the summary must understand every word. Source tags like `[S10]`
+  are fine. A code may appear in the body after it is defined in that document.
+- **Callouts stay small.** The decision box lists each decision on its own line, ≤25
+  words per line, at most 3 lines. Context such as a conflict with an earlier decision
+  goes in the body. The risk box is ≤60 words, and its reverse trigger is ≤30 words.
 - A document under one page in total needs only the bold bottom line.
 
 ## 4 · Body
 
 - **Headings are claims**, not topics. Bad: `## Market analysis`. Good:
   `## Mid-market churn, not acquisition, caps growth`. Never a bare framework name.
+  A heading is one complete claim of ≤15 words; the title is ≤12 words.
 - **Lens line.** Under each claim heading, one line naming the framework used:
   `*Lens: metric tree (frameworks §3B)*`.
 - Each section proves only its own heading. Sections follow the storyline order.
 - **Exhibits** (tables, trees, matrices): one message each. Title the exhibit with that
   message, and add `Source: <…>` under it.
 - Close with one **quotable line**, then `## Appendix` for detail, data and queries.
+- **The appendix holds only what the body cites:** evidence, arithmetic, queries, method.
+  It is not storage for cut text. If the body does not link to it, delete it.
 
 ## 5 · Skim layer
 
@@ -128,9 +138,18 @@ playbooks in [frameworks.md](frameworks.md) and [toolkit.md](toolkit.md).
 | Body: research, strategy, PRD, metrics, GTM | ≤1,500 words |
 | Body: positioning | ≤1,200 words |
 | `00-brief.md` | ≤400 words in total |
-| Appendix, user stories, metric-definition tables, risk registers | No cap; keep each item compact |
+| Appendix | ≤800 words per document |
+| **Whole package** (all files except `sources.md` and user stories) | ≤6,000 words |
+| User stories, metric-definition tables, risk registers | No cap; keep each item compact |
 
 The body is everything between the end of the executive summary and `## Appendix`.
+
+- **A cap is a ceiling, not a target.** Aim for about two thirds of each cap.
+- **Over a cap: cut, don't move.** Move detail to the appendix only while the appendix
+  and the package stay under their caps. Otherwise delete it, or keep one line and a link
+  to the source.
+- **Say each thing once.** The reverse trigger, the decisions and each number are written
+  in full in one place; elsewhere, restate in a few words and link.
 
 ## 8 · Package
 
@@ -138,6 +157,8 @@ The body is everything between the end of the executive summary and `## Appendix
   one file; other files link to it. Executive summaries may restate conclusions.
 - `00-brief.md` is the package's executive summary, plus the goal / NSM table and the file
   list.
+- `sources.md` is the source table only: no executive summary, no claim sections, no
+  appendix. It is exempt from the summary, heading and lens checks.
 
 ## 9 · Claim notes (specialists → author)
 
@@ -163,8 +184,16 @@ awk '/^## Executive summary/{s=1;next} s==1&&/^(## |---$)/{s=2} /^## Appendix/{e
 grep -E '^#{1,2} ' FILE
 # Lens lines (one per claim section)
 grep -c '^\*Lens: ' FILE
+# Appendix words (≤800)
+awk '/^## Appendix/{s=1;next} s' FILE | wc -w
+# Package words (≤6,000; front matter counts, so keep it short)
+ls DIR/*.md | grep -v -e sources.md -e user-stories | xargs cat | wc -w
+# Code candidates in the summary (each must be spelled out; GPU or product names are fine)
+awk '/^## Executive summary/{s=1;next} s&&/^(## |---$)/{exit} s' FILE | grep -v '^\s*$' | sed 's/\[S[0-9]*\]//g' | grep -oE '\b[A-Z]{1,3}[0-9]{1,2}\b' | sort -u
 ```
 
 - **Heading-only test:** the `#`/`##` lines alone make the argument.
 - **Level test:** nothing from the document's "may NOT contain" list is in the body.
 - **Lens test:** every required lens for the document type appears as an exhibit.
+- **Plain-words test:** the code-candidate command prints nothing that is an internal
+  label.
