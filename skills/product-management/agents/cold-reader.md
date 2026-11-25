@@ -24,10 +24,12 @@ Then mark each slide:
 
 - **Pass:** you could fill every column without guessing.
 - **Fail:** it breaks the story (above), or you guessed, or a name, letter, label, scale, column or colour was not
-  explained on that slide. Quote the exact words that blocked you.
+  explained on that slide or an earlier one. Quote the exact words that blocked you.
 
 Rules:
 
+- Read the slides in order. A name defined on an earlier slide counts as defined; the
+  executive summary must stand alone, and backup slides may rely on the main slides.
 - Don't use knowledge of the industry to fill gaps the slide leaves. If the slide uses a
   product or option name without saying what it is, that is a fail, even if you could
   guess.
