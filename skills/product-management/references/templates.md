@@ -2,7 +2,7 @@
 
 Every document follows the [writing standard](writing-standard.md):
 
-- the executive summary block (§3) first;
+- the executive summary block (§3) first, opening with the italic context line;
 - claim headings, each followed by a `*Lens: …*` line (§4);
 - the skim layer (§5);
 - `## Appendix` last.

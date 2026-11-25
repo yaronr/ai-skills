@@ -27,9 +27,9 @@ Ask any product question. You don't need to name the skill. Examples:
 | 2 Discover | user-researcher · market-analyst · data-analyst · strategist | Segments and JTBD, why now and competitors, sizing and metrics, options |
 | 3 Decide | GPM | Lays out 3 options → 1 pick, with the trade-off and a reverse trigger |
 | 3.5 Storyline | GPM or strategist (+ red-team on Full) | Per document: the question, the answer, 3–5 claims with their lenses |
-| 4 Define | eng-lead · designer · gtm-lead · data-analyst → pm-writer | Specialists write claim notes; the pm-writer is the single author of every document; the designer builds the visual artifact |
-| 5 Review | red-team (Opus) · editor (Sonnet) | A fresh-eyes critique, then the heading-only, level and lens tests, the skim layer and a 30% cut |
-| 6 Package | GPM → product-ops | Files the work into the knowledge base (or into `product-work/`) and builds an HTML artifact |
+| 4 Define | eng-lead · designer · gtm-lead · data-analyst → pm-writer | Specialists write claim notes; the pm-writer is the single author of every document; |
+| 5 Review | red-team (Opus) · editor (Sonnet) · designer (Opus) · cold-reader (Sonnet) | A fresh-eyes critique; the heading-only, level and lens tests, the skim layer and a 30% cut; then the deck, checked by a reader who sees only the slides |
+| 6 Package | GPM → product-ops | Files the work into the knowledge base (or into `product-work/`), with the deck as PDF |
 
 **Model tiering.** Opus handles the judgment-heavy roles: strategy, numbers, writing the
 documents and red-team review. Sonnet handles research, specialist notes and the editing
@@ -44,8 +44,11 @@ references/
   metrics.md          metric definitions, formulas, benchmarks, traps; HEART, GSM, NSM, AARRR, PMF
   toolkit.md          JTBD, OST, RICE, Kano, Playing to Win, 7 Powers, pre-mortem, A/B tests, PR/FAQ…
   writing-standard.md one question per doc, storyline, executive summary, claim headings, skim layer, required lenses, caps
+  deck-standard.md    the slide deck: cold reader, cover, slide anatomy, self-explaining exhibits, footnotes
   templates.md        brief, research, analysis, strategy, positioning, GTM, PRD, user stories, metrics, decision record, roadmap
 scripts/check_package.py  runs every mechanical writing-standard check on a package
+scripts/check_deck.py     static deck checks · scripts/render_deck.js  PDF, slide PNGs, overflow
+assets/deck-template.html the deck layout and slide types
 agents/               subagent role briefs (+ _common.md)
 evals/                test cases (claude plugin eval layout)
 ```
@@ -58,9 +61,8 @@ decisions. Install both.
 
 ## Optional dependency
 
-**[ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)** is used to
-style the visual artifacts. If it is not installed, the skill falls back to the
-`artifact-design` skill or to clean default styling.
+`scripts/render_deck.js` needs Node and Playwright with Chromium. Without them, render the
+deck with any headless Chrome and check each slide by eye.
 
 ## Sources
 

@@ -54,6 +54,8 @@ Answer: <one sentence>
 # <Title: the answer, ≤12 words>
 
 ## Executive summary
+*<Product> <is / does, in one plain sentence>. This answers: <the question>, asked because <trigger>.*
+
 **<Bottom line: the answer in one bold sentence.>**
 
 - **<Lead-in claim.>** <≤2 lines: evidence with <ins>the key number</ins> (source).> 🟢 high
@@ -70,7 +72,13 @@ Answer: <one sentence>
 **Next:** 1) <action> (owner, gate) · 2) <…> · 3) <…>
 ```
 
-- Order is fixed: bottom line → key judgments → decision → risk → next.
+- Order is fixed: context line → bottom line → key judgments → decision → risk → next.
+- **Write for the cold reader.** The summary gets forwarded to people who never saw the
+  work. The italic context line (≤40 words) says what the product is and which question
+  the document answers. Name every product, segment and option in plain words on first
+  use. Give every verb its object: "sell to mid-market teams first", not "lead with
+  mid-market". If the title can't say this in 12 words, the context line carries it;
+  never leave it out to save words.
 - Every judgment has a number and a confidence marker. Numbers are sourced or `Estimate`.
 - Drop the decision or risk box when it doesn't apply. Never pad.
 - **Plain words only.** The summary and every heading spell out each internal label
