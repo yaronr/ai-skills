@@ -79,7 +79,7 @@ def callouts(summary_and_body, kind):
 
 
 CODE = re.compile(r"\b[A-Z]{1,3}[0-9]{1,2}\b")
-GPU_LIKE = re.compile(r"^(A|H|B|L|T|V|P|G|M|K)[0-9]{2,3}$")  # A100, H100, L40… are names
+GPU_LIKE = re.compile(r"^((A|H|B|L|T|V|P|G|M|K)[0-9]{2,3}|L4|T4)$")  # A100, H100, L40, L4… are names, not codes
 
 
 def codes(text):
