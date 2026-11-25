@@ -84,9 +84,10 @@ def check_slide(where, body):
             report("FAIL", where, "exhibit title", "chart without .exhibit-title (what, unit, scale)")
         if 'class="how"' not in body:
             report("FAIL", where, "how to read", "scores, balls or charts need a .how line")
-    words = len(text(body).split())
+    core = re.sub(r'<div class="(?:tracker|foot)\b.*?</div>\s*(?:</div>)?', "", body, flags=re.S)
+    words = len(text(core).split())
     if words > 260:
-        report("WARN", where, "slide words", f"{words} (aim for 100–200)")
+        report("WARN", where, "slide words", f"{words} without tracker and footnote (aim for 100–200)")
 
 
 def main():

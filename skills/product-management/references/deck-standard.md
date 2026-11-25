@@ -20,7 +20,8 @@ does not know the product's internal names. Every slide must make sense to that 
 
 - **Name things on first use.** The cover says in one line what the product is and what
   it does. Every product, feature, segment or option name is defined the first time it
-  appears in the deck, in plain words. So is every term of art and every third-party
+  appears in the deck, in plain words — once. The cover and the summary define the
+  product; later slides don't repeat it. So is every term of art and every third-party
   product or feature name: a gloss of ≤8 words in brackets ("a reserved-GPU booking").
 - **Cut, then replace, then gloss.** A term the decision doesn't need goes (a model
   server's name, a GPU's spot price). A term it needs is replaced by plain words where
@@ -148,7 +149,8 @@ One small block at the bottom of every content slide:
 
 ## 7 · Words
 
-- Titles 10–20 words; about 100–200 words per slide in total.
+- Titles 10–20 words; about 100–200 words per slide, not counting the tracker and footnote.
+  Over 250 means the slide carries two messages or too much detail: split it or cut.
 - Sentences ≤20 words. Numbers instead of adjectives.
 - The same names, numbers and dates as the package. If the deck needs a number the
   package lacks, add it to the package first.
