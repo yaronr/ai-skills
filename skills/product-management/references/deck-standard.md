@@ -20,7 +20,10 @@ does not know the product's internal names. Every slide must make sense to that 
 
 - **Name things on first use.** The cover says in one line what the product is and what
   it does. Every product, feature, segment or option name is defined the first time it
-  appears in the deck, in plain words.
+  appears in the deck, in plain words. So is every term of art and every third-party
+  product or feature name: a gloss of ≤8 words in brackets ("a reserved-GPU booking").
+- **Every number has its denominator.** A threshold or gate says what it measures, over
+  what, and when: "GPU pods that start, ≥90% over 14 days", not "pod start ≥90%".
 - **Full verbs with objects.** Say who does what to whom. Not "Lead with mid-market", but
   "Sell the invoicing product to mid-market finance teams first". Not "Ship B", but
   "Build the 'pay by bank transfer' option".
@@ -120,7 +123,10 @@ A reader must understand an exhibit without the speaker, the package or the slid
   colour means.
 - **Options keep their full names** on every exhibit. A letter may prefix the name ("B ·
   Pay by bank transfer"), never replace it.
-- **Every options or competitor table has a price column.**
+- **Scales stay true.** If groups in one chart have different maxima (re-weighted scores,
+  different samples), state each group's maximum or convert to a percentage.
+- **Every options or competitor table has a price column**, in one unit for the same
+  thing in every row (the same product, size and period), so the rows compare.
 - **One message.** If the exhibit shows two things, split it or cut one.
 
 ## 6 · Footnote
