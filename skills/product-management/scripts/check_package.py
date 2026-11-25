@@ -108,6 +108,10 @@ def check_doc(path, text):
         report("PASS" if n <= cap else "FAIL", name, "body words", f"{n} (≤{cap})")
         n = words(appendix)
         report("PASS" if n <= CAPS["appendix"] else "FAIL", name, "appendix words", f"{n} (≤{CAPS['appendix']})")
+    first_line = next((l.strip() for l in summary.splitlines() if l.strip()), "")
+    ok = first_line.startswith("*") and not first_line.startswith("**")
+    report("PASS" if ok else "FAIL", name, "context line",
+           "ok" if ok else "summary must open with an italic line: what the product is and the question")
     found = codes(summary)
     report("PASS" if not found else "FAIL", name, "codes in summary",
            ", ".join(found) if found else "none")
@@ -227,7 +231,7 @@ def main():
         compare(files, a.previous, folder)
     fails = results.count("FAIL")
     print(f"\n{fails} failed · {results.count('WARN')} warnings · {results.count('PASS')} passed")
-    print("Not checked by script: heading-only story, level test, required lenses as exhibits, "
+    print("Not checked by script: whether a cold reader understands the summary, heading-only story, level test, required lenses as exhibits, "
           "the brief's 'why it won' judgment, meaning of removed items.")
     sys.exit(1 if fails else 0)
 

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>&lt;Product&gt;: &lt;decision&gt; — strategy deck</title>
+<!--
+  Deck template. Rules: references/deck-standard.md.
+  Copy this file to the work directory as deck.html, keep the slide types you need,
+  delete the rest, and replace every <placeholder>. Numbers below are illustrative only.
+  Brand: change the variables in :root. Nothing else needs restyling.
+  Checks: python3 scripts/check_deck.py deck.html · node scripts/render_deck.js deck.html deck.pdf
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F172A; --ink-2:#334155; --ink-3:#64748B; --rule:#CBD5E1; --wash:#F1F5F9;
+  --accent:#2563EB; --accent-dark:#1E40AF; --accent-darker:#172554; --pick:#EAF1FE;
+  --muted:#CBD5E1; --muted-2:#64748B;
+  --yes:#16A34A; --part:#D97706; --no:#DC2626;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#E2E8F0}
+body{font-family:var(--font);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slide{width:1280px;height:720px;background:#fff;margin:24px auto;position:relative;overflow:hidden;padding:40px 56px 0;display:flex;flex-direction:column}
+.tag{position:absolute;top:16px;right:56px;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--ink-3);text-transform:uppercase}
+.tracker{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px}
+h1{font-size:27px;line-height:1.22;font-weight:700;letter-spacing:-.01em;max-width:1120px}
+.subhead{font-size:16px;color:var(--ink-2);margin-top:6px}
+.rule{height:3px;background:var(--accent);margin:14px 0 18px}
+.body{flex:1;min-height:0;position:relative}
+.foot{min-height:52px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:24px;padding:8px 0;font-size:10.5px;line-height:1.35;color:var(--ink-3)}
+.foot .src{max-width:1000px}.foot .pg{white-space:nowrap}
+/* exhibit parts */
+.exhibit-title{font-size:16px;font-weight:600;color:var(--ink-2);margin-bottom:10px}
+.how{font-size:12.5px;color:var(--ink-3);margin-top:8px;line-height:1.4}
+.how b{color:var(--ink-2)}
+.callout{background:var(--wash);border-left:4px solid var(--accent);padding:12px 16px;font-size:15px;line-height:1.4}
+.grid{display:grid;gap:16px}
+.card{border:1px solid var(--rule);border-top:4px solid var(--accent);padding:14px 16px}
+.card h3{font-size:16.5px;margin-bottom:6px}
+.card p,.card li{font-size:14.5px;line-height:1.45;color:var(--ink-2)}.card li{margin-left:16px}
+.card.warn{border-top-color:var(--part)}.card.quiet{border-top-color:var(--ink-3)}
+.big{font-size:34px;font-weight:700;color:var(--accent);line-height:1}
+/* tables */
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3);text-align:left;font-weight:600;padding:6px 8px;border-bottom:2px solid var(--ink)}
+td{padding:9px 8px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.35}
+td.c,th.c{text-align:center}
+tr.pick td{background:var(--pick)}
+/* Harvey ball: set --v from 0 to 100 */
+.hb{display:inline-block;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink);vertical-align:middle;background:conic-gradient(var(--ink) calc(var(--v)*1%),#fff 0)}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;color:#fff}
+.chip.high{background:var(--yes)}.chip.moderate{background:var(--part)}.chip.low{background:var(--no)}
+/* bar chart (HTML, direct labels) */
+.bars{display:flex;gap:36px;align-items:flex-end;height:260px;border-bottom:1.5px solid var(--ink);padding:0 8px}
+.bars .grp{flex:1;display:flex;gap:6px;align-items:flex-end;height:100%}
+.bars .bar{flex:1;position:relative;background:var(--muted)}
+.bars .bar.pick{background:var(--accent)}.bars .bar.alt{background:var(--muted-2)}
+.bars .bar span{position:absolute;top:-20px;left:0;right:0;text-align:center;font-size:13px;font-weight:700}
+.bars .bar em{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-style:normal;font-size:11px;font-weight:600;color:#fff;writing-mode:vertical-rl;transform:rotate(180deg);margin:auto}
+.grp-labels{display:flex;gap:36px;padding:8px 8px 0}
+.grp-labels div{flex:1;font-size:13px;font-weight:600;line-height:1.3}
+/* executive summary bands */
+.band{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--rule)}
+.band .lab{background:var(--accent);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.25}
+.band:nth-child(2) .lab{background:var(--accent-dark)}.band:nth-child(3) .lab{background:var(--accent-darker)}
+.band .txt{padding:12px 18px;font-size:16px;line-height:1.45}.band .txt li{margin:2px 0 2px 16px}
+/* roadmap chevrons */
+.chev{display:flex}
+.chev div{flex:1;background:var(--accent);color:#fff;padding:16px 30px 16px 28px;font-weight:700;font-size:17px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%)}
+.chev div:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%)}
+.chev div:nth-child(2){background:var(--accent-dark)}.chev div:nth-child(3){background:var(--accent-darker)}
+/* cover */
+.cover{background:var(--ink);color:#fff;padding:56px 96px 40px;justify-content:center}
+.cover .kicker{font-size:13px;font-weight:700;letter-spacing:.12em;color:#93C5FD;text-transform:uppercase}
+.cover .q{font-size:20px;color:#CBD5E1;margin-top:22px;line-height:1.35;max-width:1000px}
+.cover h1{font-size:40px;max-width:1040px;margin-top:10px}
+.cover dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;margin-top:28px;font-size:16px;line-height:1.4;max-width:1040px}
+.cover dt{color:#93C5FD;font-weight:700}.cover dd{color:#E2E8F0}
+.cover .meta{margin-top:26px;font-size:14px;color:#94A3B8}
+@page{size:1280px 720px;margin:0}
+@media print{html,body{background:#fff}.slide{margin:0;break-after:page}.slide:last-child{break-after:auto}}
+</style>
+</head>
+<body>
+
+<!-- COVER: question, trigger, product, answer (deck-standard §3) -->
+<section class="slide cover">
+  <div class="kicker">Product strategy · &lt;Product&gt;</div>
+  <p class="q"><b>Question:</b> &lt;the question this deck answers, as a question&gt;</p>
+  <h1>&lt;The answer as one full sentence: who does what, for whom&gt;</h1>
+  <dl>
+    <dt>Why now</dt><dd class="trigger">&lt;the event, request or signal that triggered this analysis&gt;</dd>
+    <dt>The product</dt><dd class="product">&lt;Product&gt; &lt;what it is and does, in one plain sentence&gt;</dd>
+    <dt>Decision</dt><dd>&lt;who decides what&gt;</dd>
+  </dl>
+  <div class="meta">&lt;Draft or final&gt; · &lt;date&gt; · &lt;sensitivity label&gt;</div>
+</section>
+
+<!-- EXECUTIVE SUMMARY: why / what / how + reverse-if -->
+<section class="slide">
+  <div class="tag">Preliminary</div>
+  <div class="tracker">Executive summary</div>
+  <h1>&lt;The whole recommendation in one sentence, 10–20 words&gt;</h1>
+  <div class="rule"></div>
+  <div class="body">
+    <div class="band"><div class="lab">Why act now?</div><div class="txt"><ul>
+      <li><b>&lt;Claim.&gt;</b> &lt;Evidence with one key number.&gt;</li>
+      <li><b>&lt;Claim.&gt;</b> &lt;Evidence.&gt;</li></ul></div></div>
+    <div class="band"><div class="lab">What do we recommend?</div><div class="txt"><ul>
+      <li><b>&lt;The pick, with its full name.&gt;</b> &lt;Who it serves and what we give up.&gt;</li>
+      <li><b>&lt;Why it won, against the named runners-up.&gt;</b> &lt;Scores or numbers.&gt;</li>
+      <li><b>&lt;How sure we are.&gt;</b> &lt;The one fact the pick rests on.&gt;</li></ul></div></div>
+    <div class="band"><div class="lab">How do we start?</div><div class="txt"><ul>
+      <li><b>&lt;First gated step.&gt;</b> &lt;What proves it.&gt;</li>
+      <li><b>&lt;Decisions needed now.&gt;</b> &lt;Who decides what.&gt;</li></ul></div></div>
+    <div class="callout" style="margin-top:12px"><b>Reverse if</b> &lt;metric, threshold, milestone&gt;: then &lt;what we do instead&gt;.</div>
+  </div>
+  <div class="foot"><div class="src">Source: &lt;publisher, title&gt; (&lt;date&gt;); &lt;…&gt;.</div><div class="pg">2</div></div>
+</section>
+
+<!-- OPTIONS MATRIX: full option names, price column, how-to-read -->
+<section class="slide">
+  <div class="tag">Preliminary</div>
+  <div class="tracker">What to bet on</div>
+  <h1>&lt;Claim: which option wins and on what&gt;</h1>
+  <div class="rule"></div>
+  <div class="body">
+    <div class="exhibit-title">How each option scores on the five criteria we weighted (score out of 65; higher is better)</div>
+    <table>
+      <tr><th>Option</th><th class="c">&lt;Criterion 1&gt; (×3)</th><th class="c">&lt;Criterion 2&gt; (×2)</th><th class="c">&lt;Criterion 3&gt; (×1)</th><th>Price to the buyer</th><th class="c">Score /65</th></tr>
+      <tr><td><b>A · &lt;full option name&gt;</b></td><td class="c"><span class="hb" style="--v:75"></span></td><td class="c"><span class="hb" style="--v:50"></span></td><td class="c"><span class="hb" style="--v:25"></span></td><td>&lt;price&gt;</td><td class="c">40</td></tr>
+      <tr class="pick"><td><b>B · &lt;full option name&gt;</b> (recommended)</td><td class="c"><span class="hb" style="--v:100"></span></td><td class="c"><span class="hb" style="--v:75"></span></td><td class="c"><span class="hb" style="--v:50"></span></td><td>&lt;price&gt;</td><td class="c"><b>46</b></td></tr>
+      <tr><td><b>C · &lt;full option name&gt;</b></td><td class="c"><span class="hb" style="--v:50"></span></td><td class="c"><span class="hb" style="--v:75"></span></td><td class="c"><span class="hb" style="--v:75"></span></td><td>&lt;price&gt;</td><td class="c">39</td></tr>
+    </table>
+    <p class="how"><b>How to read:</b> each ball shows a 1–5 rating (full = 5). The number in brackets is the criterion's weight. Score = sum of rating × weight; the maximum is 65.</p>
+  </div>
+  <div class="foot"><div class="src">Source: internal option scoring (&lt;date&gt;); prices: &lt;publisher&gt; (&lt;date&gt;). Framework: options matrix.</div><div class="pg">3</div></div>
+</section>
+
+<!-- SENSITIVITY: groups named by what changes, bars labelled directly -->
+<section class="slide">
+  <div class="tag">Preliminary</div>
+  <div class="tracker">How sure we are</div>
+  <h1>&lt;Claim: which lead is robust and which rests on one assumption&gt;</h1>
+  <div class="rule"></div>
+  <div class="body" style="display:grid;grid-template-columns:1.35fr 1fr;gap:40px">
+    <div>
+      <div class="exhibit-title">Score out of 65 for each option, under our weights and under two changes to them</div>
+      <div class="bars">
+        <div class="grp"><div class="bar" style="height:61%"><span>40</span><em>A · &lt;name&gt;</em></div><div class="bar pick" style="height:71%"><span>46</span><em>B · &lt;name&gt;</em></div><div class="bar alt" style="height:60%"><span>39</span><em>C · &lt;name&gt;</em></div></div>
+        <div class="grp"><div class="bar" style="height:55%"><span>36</span><em>A · &lt;name&gt;</em></div><div class="bar pick" style="height:65%"><span>42</span><em>B · &lt;name&gt;</em></div><div class="bar alt" style="height:58%"><span>38</span><em>C · &lt;name&gt;</em></div></div>
+        <div class="grp"><div class="bar" style="height:58%"><span>38</span><em>A · &lt;name&gt;</em></div><div class="bar pick" style="height:55%"><span>36</span><em>B · &lt;name&gt;</em></div><div class="bar alt" style="height:45%"><span>29</span><em>C · &lt;name&gt;</em></div></div>
+      </div>
+      <div class="grp-labels"><div>Our weights</div><div>If &lt;criterion 1, in words&gt; counts 1× instead of 3×</div><div>If &lt;criterion 2, in words&gt; counts 1× instead of 3×</div></div>
+      <p class="how"><b>How to read:</b> each group re-scores the same three options with one weight changed. The highest bar in a group wins under that weighting.</p>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card"><h3>&lt;Robust lead, in words&gt;</h3><p>&lt;Why it holds, with numbers.&gt;</p></div>
+      <div class="card warn"><h3>&lt;Weak point, in words&gt;</h3><p>&lt;The weight it rests on and what flips it.&gt;</p></div>
+      <div class="card quiet"><h3>How we close it</h3><p>&lt;The test and its threshold.&gt;</p></div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">Source: internal option scoring (&lt;date&gt;). Note: re-weighted scores are arithmetic on the options matrix. Framework: sensitivity analysis on the two key weights.</div><div class="pg">4</div></div>
+</section>
+
+<!-- PLAN: gated moves -->
+<section class="slide">
+  <div class="tag">Preliminary</div>
+  <div class="tracker">The plan</div>
+  <h1>&lt;Claim: the guiding policy and its gated moves&gt;</h1>
+  <div class="rule"></div>
+  <div class="body">
+    <div class="chev"><div>1 · &lt;move&gt;</div><div>2 · &lt;move&gt;</div><div>3 · &lt;move&gt;</div></div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:16px">
+      <div class="card"><h3>Gate</h3><p>&lt;what must be true to go on&gt;</p><p><b>Effort:</b> S · <b>Recommended date:</b> &lt;date&gt; (owner to confirm)</p></div>
+      <div class="card"><h3>Gate</h3><p>&lt;…&gt;</p></div>
+      <div class="card"><h3>Gate</h3><p>&lt;…&gt;</p></div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">Source: &lt;…&gt;. Framework: guiding policy and coherent actions.</div><div class="pg">5</div></div>
+</section>
+
+<!-- DECISIONS -->
+<section class="slide">
+  <div class="tracker">Decisions needed</div>
+  <h1>&lt;Who must decide how many things, and by when&gt;</h1>
+  <div class="rule"></div>
+  <div class="body">
+    <table>
+      <tr><th>Decision</th><th>Who</th><th>By when</th><th>One-way door?</th></tr>
+      <tr><td><b>&lt;decision in plain words&gt;</b></td><td>&lt;role&gt;</td><td>&lt;gate or recommended date&gt;</td><td>&lt;yes/no: why&gt;</td></tr>
+    </table>
+  </div>
+  <div class="foot"><div class="src">Source: &lt;…&gt;.</div><div class="pg">6</div></div>
+</section>
+
+<!-- BACKUP -->
+<section class="slide">
+  <div class="tag">Backup</div>
+  <div class="tracker">Backup</div>
+  <h1>&lt;Claim the backup supports&gt;</h1>
+  <div class="rule"></div>
+  <div class="body"><!-- detail the main slides cite --></div>
+  <div class="foot"><div class="src">Source: &lt;…&gt;.</div><div class="pg">7</div></div>
+</section>
+
+</body>
+</html>

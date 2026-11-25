@@ -209,7 +209,7 @@ Two steps. First the specialists add claim notes for the chosen option, in one m
 Then the **pm-writer** (`opus`, `high`) writes the documents from the storyline and the
 notes. It is the only author. Run one call per document, or per 2–3 small ones, so each
 call has room to think; the shared standard and the editor keep the voice consistent.
-After the drafts exist, the designer builds `artifact.html` from them.
+The deck is built after review (Phase 5), from the finished documents.
 
 Give every Define agent the **decision**, the storyline and the research summaries.
 Without them, the documents drift apart.
@@ -223,6 +223,11 @@ Without them, the documents drift apart.
 3. Spawn `editor.md` (sonnet, medium) to enforce the writing standard: the heading-only,
    level and lens tests, the skim layer, the caps, a cut of about 30%, and consistency
    across documents (the same NSM, numbers and names everywhere).
+4. **Deck (Standard and Full).** Spawn `designer.md` (opus, high) to build `deck.html` and
+   `deck.pdf` from the finished package, per [deck-standard.md](references/deck-standard.md).
+5. **Cold read.** Spawn `cold-reader.md` (sonnet, medium) with **only the slide PNGs**
+   (`_work/slides/`): no question, no package, no HTML. Fix every slide it fails, then
+   re-render and re-run the cold read on the changed slides.
 
 On Quick runs, skip the agents. Self-check against the quality bar instead.
 
@@ -248,6 +253,10 @@ every file passes:
 - **Heading-only test:** the `#`/`##` lines alone tell the story.
 - **Level and lens tests:** nothing from the "may NOT contain" list in the body; every
   required lens shown as an exhibit with a `*Lens: …*` line.
+- **Deck (Standard and Full):** `python3 scripts/check_deck.py deck.html` and
+  `node scripts/render_deck.js deck.html deck.pdf` pass (cover with question, trigger and
+  product; footnotes; self-explaining exhibits; no overflow), and the cold read passes
+  every slide.
 
 ## Phase 6: Package
 
@@ -271,7 +280,7 @@ Other routes reuse the numbers for their main document: `01-analysis.md` (diagno
 decision analysis), `02-vision-roadmap.md`, `02-pricing.md`, `02-alignment.md`.
 
 ```
-artifact.html        ← visual summary (optional, see below)
+deck.html · deck.pdf ← the slide deck (Standard and Full; see below)
 sources.md           ← the source table only (no summary, no sections)
 ```
 
@@ -279,14 +288,9 @@ sources.md           ← the source table only (no summary, no sections)
 out of the knowledge base. Omit any file the tier doesn't need. Number the files in reading order. **Quick** tier:
 one file (`00-brief.md`, plus a detail appendix if needed) or just the chat answer.
 
-**Visual artifact.** For Standard and Full runs, the designer builds a one-page HTML
-summary in full colour: the decision, the key judgments with confidence chips, the
-metric tree, the roadmap and the key flows. Use the
-**`ui-ux-pro-max`** skill for its style, palette and layout decisions, and for any mods
-or UI mockups. If that skill is not installed, say so once. Suggest
-`/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill`, then fall back to the
-`artifact-design` skill or the best design guidance available. Publish the page with the
-Artifact tool when it exists, and give the user the link.
+**Deck.** Standard and Full runs ship `deck.html` and `deck.pdf`: the consulting-style
+version of the package for people who won't read markdown. It replaces any other visual
+summary. Give the user the PDF; publish nothing to a shared surface without being asked.
 
 **Final chat reply** (≤10 lines), shaped like a mini executive summary: the bottom line,
 the top 3 findings, the decision needed, the files or link, and the assumptions to
@@ -314,6 +318,9 @@ paste the parts each subagent needs.
   pass a cap. Say each thing once and link.
 - **Plain words.** Summaries, headings and callouts spell out every internal code. The
   reader of the summary alone understands every word.
+- **Cold reader.** Write for someone who never saw the work. Each summary opens with a
+  context line: what the product is and the question. Name things on first use; give
+  every verb its object ("sell to X first", not "lead with X").
 - **Concrete.** Numbers instead of adjectives; at least 2 numbers per claim of impact.
   Name the segment, the metric and the milestone.
 - **Decisive.** Pick a side. Name the trade-off. Mark uncertainty as `Assumption:`,
@@ -365,6 +372,8 @@ item fails.
     Each fact has one home.
 12. **Frameworks visible.** Every document shows its required GPM lenses as exhibits,
     each under a claim heading with a `*Lens: …*` line.
+13. **Readable cold.** A reader who never saw the work understands the brief and every
+    slide alone: what the product is, the question, the answer, and what each exhibit shows.
 
 ## Reference map
 
@@ -384,6 +393,12 @@ item fails.
 - [references/templates.md](references/templates.md): the brief, research, analysis,
   strategy, positioning, GTM, PRD, user story, metrics, decision record, PR/FAQ and
   roadmap templates.
+- [references/deck-standard.md](references/deck-standard.md) and
+  [assets/deck-template.html](assets/deck-template.html): the slide deck's storyline, cover,
+  slide anatomy, self-explaining exhibits and footnotes; the layout to start from.
+- [scripts/check_deck.py](scripts/check_deck.py) and
+  [scripts/render_deck.js](scripts/render_deck.js): static deck checks; PDF, slide PNGs and
+  the overflow check.
 - [scripts/check_package.py](scripts/check_package.py): runs every mechanical check on a
   package (word caps, internal codes, headings, lens lines, callouts, reverse trigger,
   `sources.md`) and, with `--previous`, lists what a revision removed.
