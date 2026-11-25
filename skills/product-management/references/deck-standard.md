@@ -22,6 +22,12 @@ does not know the product's internal names. Every slide must make sense to that 
   it does. Every product, feature, segment or option name is defined the first time it
   appears in the deck, in plain words. So is every term of art and every third-party
   product or feature name: a gloss of ≤8 words in brackets ("a reserved-GPU booking").
+- **Cut, then replace, then gloss.** A term the decision doesn't need goes (a model
+  server's name, a GPU's spot price). A term it needs is replaced by plain words where
+  possible ("interruptible price", not "spot"). Gloss only what must stay. Each gloss
+  adds words; a slide full of glosses is too detailed for its audience.
+- **The executive summary stands alone.** It is read before any other slide, so it uses
+  no scale, score, label or list that only a later slide explains.
 - **Every number has its denominator.** A threshold or gate says what it measures, over
   what, and when: "GPU pods that start, ≥90% over 14 days", not "pod start ≥90%".
 - **Full verbs with objects.** Say who does what to whom. Not "Lead with mid-market", but
@@ -57,7 +63,8 @@ reader needs before the next one makes sense.
   names on every slide ("The problem · The options · Our pick · How sure · The plan").
 - **The executive summary previews the arc**, in the same order as the slides.
 - **One thread of names and numbers.** A number set up on one slide is the same number
-  when a later slide pays it off.
+  when a later slide pays it off. The same threshold is worded the same way on every
+  slide that states it.
 
 The deck follows the main document's storyline (writing standard §2). Order:
 
