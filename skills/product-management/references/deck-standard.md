@@ -8,7 +8,7 @@ Start from [`assets/deck-template.html`](../assets/deck-template.html). It holds
 layout, the slide types and the exhibit parts. Don't restyle it per run; swap the colour
 variables at the top for the organisation's brand if one exists.
 
-**Contents:** 1 The cold reader · 2 Storyline · 3 Cover · 4 Slide anatomy ·
+**Contents:** 1 The cold reader · 2 The story · 3 Cover · 4 Slide anatomy ·
 5 Exhibits · 6 Footnote · 7 Words · 8 Checks
 
 ---
@@ -34,9 +34,29 @@ does not know the product's internal names. Every slide must make sense to that 
   the slide claims, what product it is about, and what each exhibit shows. If they
   can't, the slide fails, however correct it is.
 
-## 2 · Storyline
+## 2 · The story
 
-The deck follows the same storyline as the main document (writing standard §2). Order:
+A deck is one argument told as a story, not a set of findings. Each slide is a step the
+reader needs before the next one makes sense.
+
+- **Write the ghost deck first.** Before any exhibit, list the slide titles alone in
+  `_work/ghost-deck.md`. Read them top to bottom as one paragraph. They must tell the
+  whole story — situation, complication, question, answer, proof, plan — with nothing
+  else on the page. If a title could move to another place without breaking the
+  story, it is a finding, not a step: link it or cut it.
+- **Each title follows from the one before.** It answers the question the previous slide
+  raises ("So which teams feel this most?" → the segment slide). Use connecting words
+  where they help: "so", "but", "because", "which means".
+- **The arc is fixed:** situation (what is true today) → complication (what changed or
+  hurts, quantified) → the question this raises (the cover's question) → the answer →
+  why it wins (options, then how sure we are) → how we win → the plan and the decisions.
+- **The tracker shows where the reader is in the story**, using the same 4–6 chapter
+  names on every slide ("The problem · The options · Our pick · How sure · The plan").
+- **The executive summary previews the arc**, in the same order as the slides.
+- **One thread of names and numbers.** A number set up on one slide is the same number
+  when a later slide pays it off.
+
+The deck follows the main document's storyline (writing standard §2). Order:
 
 1. **Cover** (§3).
 2. **Executive summary**: three bands — *Why act now?* · *What do we recommend?* ·
@@ -80,6 +100,8 @@ Every content slide has the same parts, top to bottom:
   lines, no framework names in titles.
 - **No emoji, no inline source tags** (`[S10]`), no markdown callout syntax. Confidence is
   a word or a coloured chip with the word in it.
+- **Bridge, when the step isn't obvious.** End the slide with a one-line takeaway that sets
+  up the next slide's question. Don't add a bridge when the next title already follows.
 - **Body text ≥14 px**, footnote ≥10 px. Leave white space; fill about two thirds.
 
 ## 5 · Exhibits explain themselves
@@ -132,7 +154,11 @@ node scripts/render_deck.js deck.html deck.pdf   # renders the PDF and slide PNG
 `render_deck.js` needs Node and Playwright (`npm i -g playwright` and a Chromium). If
 neither is available, render the PDF with any headless Chrome and check each slide by eye.
 
+Read the slide titles alone, in order (the ghost-deck test, §2). They must tell the
+story as one paragraph.
+
 Then run the **cold-read review** (`agents/cold-reader.md`): a fresh agent sees only the
 slide PNGs. For each slide it states the claim, the product and what each exhibit shows,
 and for the cover the question and the trigger. Any slide it can't read, or reads wrong,
-fails. Fix the slide, not the reviewer's prompt.
+fails. It also retells the deck's story from the titles alone; a gap or a slide that
+doesn't follow from the one before fails. Fix the slide, not the reviewer's prompt.

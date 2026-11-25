@@ -16,10 +16,14 @@ For each slide, write what you understand, in your own words:
 For the cover, also write: **the question** the deck answers, **why it was asked now**, and
 **what the product is**.
 
+Then retell **the deck's story** in ≤6 sentences, using only the slide titles in order.
+Name any slide whose title doesn't follow from the one before, or that you could move or
+remove without breaking the story.
+
 Then mark each slide:
 
 - **Pass:** you could fill every column without guessing.
-- **Fail:** you guessed, or a name, letter, label, scale, column or colour was not
+- **Fail:** it breaks the story (above), or you guessed, or a name, letter, label, scale, column or colour was not
   explained on that slide. Quote the exact words that blocked you.
 
 Rules:
